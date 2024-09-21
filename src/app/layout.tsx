@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Jost } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Dashboard from "@/components/Dashboard";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-jost",
 });
 
 export const metadata: Metadata = {
@@ -25,10 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${jost.variable} antialiased`}>
+        <div className="container">
+          <Dashboard />
+          <div className="container__content">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );
