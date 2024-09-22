@@ -1,11 +1,16 @@
+"use client";
+
 import React from "react";
 import { svgProps } from "@/types";
-import Image from "next/image";
+import { useStore } from "@/store";
 
 export const SvgHome: React.FC<svgProps> = ({
   color = "#000000",
   width = "2",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "1" ? "#ffffff" : color;
+
   return (
     <span>
       <svg
@@ -30,6 +35,8 @@ export const SvgInventory: React.FC<svgProps> = ({
   color = "#000000",
   width = "2",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "2" ? "#ffffff" : color;
   return (
     <span>
       <svg
@@ -39,7 +46,7 @@ export const SvgInventory: React.FC<svgProps> = ({
         xmlns="http://www.w3.org/2000/svg"
         transform="matrix(1, 0, 0, 1, 0, 0)"
       >
-        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+        <g id="SVGRepo_bgCarrier2" strokeWidth="0"></g>
         <g
           id="SVGRepo_tracerCarrier"
           strokeLinecap="round"
@@ -78,6 +85,8 @@ export const SvgSales: React.FC<svgProps> = ({
   color = "#000000",
   width = "2",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "3" ? "#ffffff" : color;
   return (
     <span>
       <svg
@@ -103,6 +112,8 @@ export const SvgPurchase: React.FC<svgProps> = ({
   color = "#000000",
   width = "0",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "4" ? "#ffffff" : color;
   return (
     <span>
       <svg
@@ -111,13 +122,13 @@ export const SvgPurchase: React.FC<svgProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="SVGRepo_bgCarrier" strokeWidth={width}></g>
+        <g id="SVGRepo_bgCarrier3" strokeWidth={width}></g>
         <g
-          id="SVGRepo_tracerCarrier"
+          id="SVGRepo_tracerCarrier2"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></g>
-        <g id="SVGRepo_iconCarrier">
+        <g id="SVGRepo_iconCarrier2">
           <path
             fillRule="evenodd"
             clipRule="evenodd"
@@ -134,6 +145,8 @@ export const SvgReports: React.FC<svgProps> = ({
   color = "#000000",
   width = "2",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "5" ? "#ffffff" : color;
   return (
     <span>
       <svg
@@ -142,13 +155,13 @@ export const SvgReports: React.FC<svgProps> = ({
         viewBox="0 0 1024 1024"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="SVGRepo_bgCarrier" strokeWidth={width}></g>
+        <g id="SVGRepo_bgCarrier4" strokeWidth={width}></g>
         <g
-          id="SVGRepo_tracerCarrier"
+          id="SVGRepo_tracerCarrier4"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></g>
-        <g id="SVGRepo_iconCarrier">
+        <g id="SVGRepo_iconCarrier4">
           <path d="M157.867 554.667h-76.8c-29.867 0-51.2 21.333-51.2 51.2v273.067c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2V605.867c0-25.6-21.333-51.2-51.2-51.2zm8.533 324.266c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V605.866c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v273.067zm251.733-371.2h-76.8c-29.867 0-51.2 21.333-51.2 51.2v328.533c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2v-332.8c0-25.6-21.333-46.933-51.2-46.933zm8.534 375.467c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V554.667c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533V883.2zM678.4 456.533h-76.8c-29.867 0-51.2 21.333-51.2 51.2v384c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2v-384c0-29.867-25.6-51.2-51.2-51.2zm8.533 435.2c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533v-384c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v384zm251.734-486.4h-76.8c-29.867 0-51.2 21.333-51.2 51.2v430.933c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2V456.533c0-25.6-25.6-51.2-51.2-51.2zm8.533 482.134c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V456.534c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v430.933zm25.6-780.8s-4.267 0 0 0c-4.267 0-4.267 0 0 0H870.4c-12.8 0-21.333 8.533-21.333 21.333s8.533 21.333 21.333 21.333h42.667c-268.8 149.333-563.2 234.667-870.4 251.733-12.8 0-21.333 12.8-21.333 21.333 0 12.8 8.533 21.333 21.333 21.333 324.267-17.067 627.2-106.667 908.8-264.533v42.667c0 12.8 8.533 21.333 21.333 21.333 12.8 0 21.333-8.533 21.333-21.333v-98.133c0-8.533-8.533-17.067-21.333-17.067z"></path>
         </g>
       </svg>
@@ -160,6 +173,8 @@ export const SvgDocuments: React.FC<svgProps> = ({
   color = "#000000",
   width = "1.5",
 }) => {
+  const { isHovered, hoveredID } = useStore();
+  color = isHovered && hoveredID === "6" ? "#ffffff" : color;
   return (
     <span>
       <svg
@@ -168,13 +183,13 @@ export const SvgDocuments: React.FC<svgProps> = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="SVGRepo_bgCarrier" strokeWidth={width}></g>
+        <g id="SVGRepo_bgCarrier5" strokeWidth={width}></g>
         <g
-          id="SVGRepo_tracerCarrier"
+          id="SVGRepo_tracerCarrier5"
           strokeLinecap="round"
           strokeLinejoin="round"
         ></g>
-        <g id="SVGRepo_iconCarrier">
+        <g id="SVGRepo_iconCarrier5">
           {" "}
           <path
             d="M18 10L13 10"
@@ -192,6 +207,49 @@ export const SvgDocuments: React.FC<svgProps> = ({
             stroke={color}
             strokeWidth={width}
           ></path>{" "}
+        </g>
+      </svg>
+    </span>
+  );
+};
+
+export const SvgArrow: React.FC<svgProps> = ({
+  id,
+  isClicked,
+  className,
+  color = "#000000",
+}) => {
+  const { isHovered, hoveredID, clickedID } = useStore();
+  color = isHovered && hoveredID === id ? "#ffffff" : color;
+  return (
+    <span className={clickedID === id ? (isClicked ? className : "") : ""}>
+      <svg
+        width="1.5em"
+        fill={color}
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier6">
+          {" "}
+          <g data-name="Layer 2">
+            {" "}
+            <g data-name="arrow-right">
+              {" "}
+              <rect
+                width="24"
+                height="24"
+                transform="rotate(180 12 12)"
+                opacity="0"
+              ></rect>{" "}
+              <path d="M10.46 18a2.23 2.23 0 0 1-.91-.2 1.76 1.76 0 0 1-1.05-1.59V7.79A1.76 1.76 0 0 1 9.55 6.2a2.1 2.1 0 0 1 2.21.26l5.1 4.21a1.7 1.7 0 0 1 0 2.66l-5.1 4.21a2.06 2.06 0 0 1-1.3.46z"></path>{" "}
+            </g>{" "}
+          </g>{" "}
         </g>
       </svg>
     </span>

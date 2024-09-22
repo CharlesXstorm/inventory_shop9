@@ -9,28 +9,40 @@ body {
   font-family: var(--font-jost)
 }
 
+.button{
+@apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px]
+}
+
+.button__primary{
+  @apply flex justify-between bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white
+}
+
+.button__secondary{
+  @apply flex justify-between bg-black w-[100%] text-white
+}
+
 .container{
   @apply flex
 }
 
+.collapsible {
+  @apply w-[100%] mt-1
+}
+
+.collapsible__menu{
+  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white
+}
+
 .dashboard{
-  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh]
+  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-y-scroll
 }
 
 .gutter{
   @apply flex justify-center items-center w-[100%]
 }
 
-.button{
-@apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px]
-}
-
-.button__primary{
-  @apply bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white
-}
-
-.button__secondary{
-  @apply bg-black w-[100%]
+.svg__arrow{
+  @apply rotate-90 transition-transform
 }
 
 h1{
