@@ -14,15 +14,35 @@ body {
 }
 
 .dashboard{
-  @apply w-[20%]
+  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh]
 }
 
 .gutter{
-  @apply flex justify-center p-paddingBlock
+  @apply flex justify-center items-center w-[100%]
+}
+
+.button{
+@apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px]
+}
+
+.button__primary{
+  @apply bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white
+}
+
+.button__secondary{
+  @apply bg-black w-[100%]
+}
+
+h1{
+  font-weight: 1000;
+  color: white;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .dashboard{
+    background-color: var(--background-800);
   }
 }

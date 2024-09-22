@@ -1,11 +1,28 @@
 import React from "react";
+import { gutterProps } from "@/types";
 
-const Gutter = ({
+const Gutter: React.FC<gutterProps> = ({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
-  return <div className="gutter">{children}</div>;
+  className,
+  type,
+  block = false,
+  button = false,
+}) => {
+  return (
+    <div
+      className={[
+        type === "column" && "flex-col",
+        "gutter",
+        block && "py-paddingBlock",
+        button && "py-paddingBlock px-[5px]",
+        `${className}`,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Gutter;
