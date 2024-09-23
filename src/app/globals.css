@@ -34,7 +34,15 @@ body {
 }
 
 .dashboard{
-  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-y-scroll
+  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-hidden
+}
+
+.dashboard__title {
+  @apply bg-black gap-2 h-[10vh]
+}
+
+.dashboard__menu {
+  @apply h-[90vh] flex flex-col items-start overflow-y-scroll border border-red-500
 }
 
 .gutter{

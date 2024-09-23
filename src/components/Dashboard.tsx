@@ -30,7 +30,7 @@ const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <Gutter type="row" block className="bg-black gap-2">
+      <Gutter type="row" block className="dashboard__title">
         <h1>Inventory</h1>
         <Image
           src="/icons/S9.svg"
@@ -40,7 +40,7 @@ const Dashboard = () => {
           className="object-contain w-[30%]"
         />
       </Gutter>
-      <Gutter type="column">
+      <Gutter type="column" className="dashboard__menu">
         {dashboard.map((menu) => (
           <Menu
             key={menu.id}
