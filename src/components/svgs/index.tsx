@@ -2,44 +2,39 @@
 
 import React from "react";
 import { svgProps } from "@/types";
-import { useStore } from "@/store";
 
-export const SvgHome: React.FC<svgProps> = ({
+export const Svg: React.FC<svgProps> = ({
+  svg,
+  className,
   color = "#000000",
   width = "2",
+  isClicked,
+  isHovered,
 }) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "1" ? "#ffffff" : color;
+  color = isHovered ? "#ffffff" : isClicked ? "#ffffff" : color;
 
-  return (
-    <span>
-      <svg
-        width="1.5em"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M9 21V13.6C9 13.0399 9 12.7599 9.109 12.546C9.20487 12.3578 9.35785 12.2049 9.54601 12.109C9.75993 12 10.04 12 10.6 12H13.4C13.9601 12 14.2401 12 14.454 12.109C14.6422 12.2049 14.7951 12.3578 14.891 12.546C15 12.7599 15 13.0399 15 13.6V21M2 9.5L11.04 2.72C11.3843 2.46181 11.5564 2.33271 11.7454 2.28294C11.9123 2.23902 12.0877 2.23902 12.2546 2.28295C12.4436 2.33271 12.6157 2.46181 12.96 2.72L22 9.5M4 8V17.8C4 18.9201 4 19.4802 4.21799 19.908C4.40974 20.2843 4.7157 20.5903 5.09202 20.782C5.51985 21 6.0799 21 7.2 21H16.8C17.9201 21 18.4802 21 18.908 20.782C19.2843 20.5903 19.5903 20.2843 19.782 19.908C20 19.4802 20 18.9201 20 17.8V8L13.92 3.44C13.2315 2.92361 12.8872 2.66542 12.5091 2.56589C12.1754 2.47804 11.8246 2.47804 11.4909 2.56589C11.1128 2.66542 10.7685 2.92361 10.08 3.44L4 8Z"
-          stroke={color}
-          strokeWidth={width}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </span>
-  );
+  return <span className={isClicked ? className : " "}>{svg(color,width)}</span>;
 };
 
-export const SvgInventory: React.FC<svgProps> = ({
-  color = "#000000",
-  width = "2",
-}) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "2" ? "#ffffff" : color;
-  return (
-    <span>
-      <svg
+export const home = (color: string = "#000000", width: string = "2") => (
+  <svg
+    width="1.5em"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9 21V13.6C9 13.0399 9 12.7599 9.109 12.546C9.20487 12.3578 9.35785 12.2049 9.54601 12.109C9.75993 12 10.04 12 10.6 12H13.4C13.9601 12 14.2401 12 14.454 12.109C14.6422 12.2049 14.7951 12.3578 14.891 12.546C15 12.7599 15 13.0399 15 13.6V21M2 9.5L11.04 2.72C11.3843 2.46181 11.5564 2.33271 11.7454 2.28294C11.9123 2.23902 12.0877 2.23902 12.2546 2.28295C12.4436 2.33271 12.6157 2.46181 12.96 2.72L22 9.5M4 8V17.8C4 18.9201 4 19.4802 4.21799 19.908C4.40974 20.2843 4.7157 20.5903 5.09202 20.782C5.51985 21 6.0799 21 7.2 21H16.8C17.9201 21 18.4802 21 18.908 20.782C19.2843 20.5903 19.5903 20.2843 19.782 19.908C20 19.4802 20 18.9201 20 17.8V8L13.92 3.44C13.2315 2.92361 12.8872 2.66542 12.5091 2.56589C12.1754 2.47804 11.8246 2.47804 11.4909 2.56589C11.1128 2.66542 10.7685 2.92361 10.08 3.44L4 8Z"
+      stroke={color}
+      strokeWidth={width}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export const inventory = (color: string = "#000000", width: string = "2") => (
+  <svg
         width="1.5em"
         viewBox="0 0 24 24"
         fill="none"
@@ -77,19 +72,10 @@ export const SvgInventory: React.FC<svgProps> = ({
           ></path>
         </g>
       </svg>
-    </span>
-  );
-};
+);
 
-export const SvgSales: React.FC<svgProps> = ({
-  color = "#000000",
-  width = "2",
-}) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "3" ? "#ffffff" : color;
-  return (
-    <span>
-      <svg
+export const sales = (color: string = "#000000", width: string = "2") => (
+  <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1.5em"
         viewBox="0 0 24 24"
@@ -104,19 +90,10 @@ export const SvgSales: React.FC<svgProps> = ({
         <circle cx="10.1707" cy="20.5322" r="1.46779" fill={color} />
         <circle cx="17.0204" cy="20.5322" r="1.46779" fill={color} />
       </svg>
-    </span>
-  );
-};
+);
 
-export const SvgPurchase: React.FC<svgProps> = ({
-  color = "#000000",
-  width = "0",
-}) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "4" ? "#ffffff" : color;
-  return (
-    <span>
-      <svg
+export const purchase = (color: string = "#000000", width: string = "0") => (
+  <svg
         width="1.5em"
         viewBox="0 0 24 24"
         fill="none"
@@ -137,19 +114,10 @@ export const SvgPurchase: React.FC<svgProps> = ({
           ></path>
         </g>
       </svg>
-    </span>
-  );
-};
+);
 
-export const SvgReports: React.FC<svgProps> = ({
-  color = "#000000",
-  width = "2",
-}) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "5" ? "#ffffff" : color;
-  return (
-    <span>
-      <svg
+export const reports = (color: string = "#000000", width: string = "2") => (
+  <svg
         width="1.5em"
         fill={color}
         viewBox="0 0 1024 1024"
@@ -165,19 +133,10 @@ export const SvgReports: React.FC<svgProps> = ({
           <path d="M157.867 554.667h-76.8c-29.867 0-51.2 21.333-51.2 51.2v273.067c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2V605.867c0-25.6-21.333-51.2-51.2-51.2zm8.533 324.266c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V605.866c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v273.067zm251.733-371.2h-76.8c-29.867 0-51.2 21.333-51.2 51.2v328.533c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2v-332.8c0-25.6-21.333-46.933-51.2-46.933zm8.534 375.467c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V554.667c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533V883.2zM678.4 456.533h-76.8c-29.867 0-51.2 21.333-51.2 51.2v384c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2v-384c0-29.867-25.6-51.2-51.2-51.2zm8.533 435.2c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533v-384c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v384zm251.734-486.4h-76.8c-29.867 0-51.2 21.333-51.2 51.2v430.933c0 29.867 21.333 51.2 51.2 51.2h76.8c29.867 0 51.2-21.333 51.2-51.2V456.533c0-25.6-25.6-51.2-51.2-51.2zm8.533 482.134c0 4.267-4.267 8.533-8.533 8.533h-76.8c-4.267 0-8.533-4.267-8.533-8.533V456.534c0-4.267 4.267-8.533 8.533-8.533h76.8c4.267 0 8.533 4.267 8.533 8.533v430.933zm25.6-780.8s-4.267 0 0 0c-4.267 0-4.267 0 0 0H870.4c-12.8 0-21.333 8.533-21.333 21.333s8.533 21.333 21.333 21.333h42.667c-268.8 149.333-563.2 234.667-870.4 251.733-12.8 0-21.333 12.8-21.333 21.333 0 12.8 8.533 21.333 21.333 21.333 324.267-17.067 627.2-106.667 908.8-264.533v42.667c0 12.8 8.533 21.333 21.333 21.333 12.8 0 21.333-8.533 21.333-21.333v-98.133c0-8.533-8.533-17.067-21.333-17.067z"></path>
         </g>
       </svg>
-    </span>
-  );
-};
+);
 
-export const SvgDocuments: React.FC<svgProps> = ({
-  color = "#000000",
-  width = "1.5",
-}) => {
-  const { isHovered, hoveredID } = useStore();
-  color = isHovered && hoveredID === "6" ? "#ffffff" : color;
-  return (
-    <span>
-      <svg
+export const documents = (color: string = "#000000", width: string = "1.5") => (
+  <svg
         width="1.5em"
         viewBox="0 0 24 24"
         fill="none"
@@ -209,21 +168,10 @@ export const SvgDocuments: React.FC<svgProps> = ({
           ></path>{" "}
         </g>
       </svg>
-    </span>
-  );
-};
+);
 
-export const SvgArrow: React.FC<svgProps> = ({
-  id,
-  isClicked,
-  className,
-  color = "#000000",
-}) => {
-  const { isHovered, hoveredID, clickedID } = useStore();
-  color = isHovered && hoveredID === id ? "#ffffff" : color;
-  return (
-    <span className={clickedID === id ? (isClicked ? className : "") : ""}>
-      <svg
+export const arrow = (color: string = "#000000", width: string) => (
+  <svg
         width="1.5em"
         fill={color}
         viewBox="0 0 24 24"
@@ -252,6 +200,6 @@ export const SvgArrow: React.FC<svgProps> = ({
           </g>{" "}
         </g>
       </svg>
-    </span>
-  );
-};
+);
+
+

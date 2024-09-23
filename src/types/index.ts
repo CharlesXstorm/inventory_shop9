@@ -13,11 +13,18 @@ export interface buttonProps extends PropsWithChildren {
   primary?: boolean;
   secondary?: boolean;
   collapsible: boolean;
+  isClicked: boolean;
+  isHovered: boolean;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 export interface svgProps {
   id?: string;
+  svg: (color: string, width: string) => React.JSX.Element;
   isClicked?: boolean;
+  isHovered?: boolean;
   className?: string;
   color?: string;
   width?: string;
@@ -31,6 +38,6 @@ export interface menuProps {
   id: string;
   title: string;
   items?: Array<itemProps> | null;
-  icon: string | React.JSX.Element;
+  icon: (color: string, width: string) => React.JSX.Element;
   collapse: boolean;
 }

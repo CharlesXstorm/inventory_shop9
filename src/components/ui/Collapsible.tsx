@@ -1,11 +1,10 @@
-"use client";
 
-import { useStore } from "@/store";
 import React, { PropsWithChildren } from "react";
 
 interface collapsibleProps extends PropsWithChildren {
   className?: string;
   id: string;
+  isClicked?: boolean | null;
 }
 
 export const Collapsible_menu: React.FC<collapsibleProps> = ({
@@ -13,7 +12,6 @@ export const Collapsible_menu: React.FC<collapsibleProps> = ({
   className,
   id,
 }) => {
-//   const { clickedID } = useStore();
   return (
     <button
       type="button"
@@ -27,14 +25,13 @@ export const Collapsible_menu: React.FC<collapsibleProps> = ({
 const Collapsible: React.FC<collapsibleProps> = ({
   children,
   className,
-  id,
+  isClicked,
 }) => {
-  const { clickedID } = useStore();
   return (
     <div
       className={[
-        clickedID === id && "collapsible__expand",
-        clickedID != id && "collapsible__collapse",
+        isClicked && "collapsible__expand",
+        !isClicked && "collapsible__collapse",
         "collapsible",
         `${className}`,
       ]

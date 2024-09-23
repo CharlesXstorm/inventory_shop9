@@ -1,9 +1,7 @@
-"use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { buttonProps } from "@/types";
-import { useStore } from "@/store";
-import { SvgArrow } from "../svgs";
+import {arrow, Svg} from "../svgs";
 import Span from "./Span";
 
 const Button: React.FC<buttonProps> = ({
@@ -13,33 +11,32 @@ const Button: React.FC<buttonProps> = ({
   primary,
   secondary,
   collapsible,
+  isClicked,
+  isHovered,
+  onClick,
+  onMouseEnter,
+  onMouseLeave
 }) => {
-  const [isClicked, setIsClicked] = useState(false)
-  const { setHovered, setClickedID, clickedID } = useStore();
 
-  console.log('clicked',isClicked,"clickedID",clickedID)
   return (
     <button
       className={[
         `${className}`,
         primary && "button__primary",
-        secondary && "button__secondary",
+        (secondary || isClicked) && "button__secondary",
         "button",
       ]
         .filter(Boolean)
         .join(" ")}
       type="button"
-      onMouseEnter={() => setHovered(true, id)}
-      onMouseLeave={() => setHovered(false, null)}
-      onClick={() => {
-        setIsClicked((prev)=> !prev)
-        setClickedID(id)
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
     >
       {children}
       {collapsible && (
         <Span>
-          <SvgArrow id={id} isClicked={isClicked} className="svg__arrow" />
+          <Svg svg={arrow} color="#000000" isClicked={isClicked} isHovered={isHovered} className="svg__arrow" />
         </Span>
       )}
     </button>

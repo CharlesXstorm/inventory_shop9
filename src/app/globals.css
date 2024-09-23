@@ -1,68 +1,92 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'css/config.css';
+@import "css/config.css";
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-jost)
+  font-family: var(--font-jost);
 }
 
-.button{
-@apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px]
+.button {
+  @apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px];
 }
 
-.button__primary{
-  @apply flex justify-between bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white
+.button__primary {
+  @apply flex justify-between bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white;
 }
 
-.button__secondary{
-  @apply flex justify-between bg-black w-[100%] text-white
+.button__secondary {
+  @apply flex justify-between bg-black w-[100%] text-white;
 }
 
-.container{
-  @apply flex
+.container {
+  @apply flex;
 }
 
 .collapsible {
-  @apply w-[100%] mt-1
+  @apply w-[100%] mt-1 overflow-hidden;
 }
 
-.collapsible__menu{
-  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white
+.collapsible__collapse {
+  @apply grid max-h-[0px] transition-all;
 }
 
-.dashboard{
-  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-hidden
+.collapsible__expand {
+  @apply grid max-h-[500px] transition-all ease-in-out;
+}
+
+.collapsible__menu {
+  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white;
+}
+
+.dashboard {
+  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
-  @apply bg-black gap-2 h-[10vh]
+  @apply flex bg-black gap-2 h-[10vh];
 }
 
 .dashboard__menu {
-  @apply h-[90vh] flex flex-col items-start overflow-y-scroll border border-red-500
+  @apply relative flex flex-col h-[90vh] w-full;
 }
 
-.gutter{
-  @apply flex justify-center items-center w-[100%]
+.dashboard__menu__contents {
+  @apply absolute top-0 h-full w-full overflow-y-scroll;
 }
 
-.svg__arrow{
-  @apply rotate-90 transition-transform
+.gutter {
+  @apply flex justify-center items-center w-[100%];
 }
 
-h1{
+.svg__arrow {
+  @apply rotate-90 transition-transform;
+}
+
+h1 {
   font-weight: 1000;
   color: white;
+}
+
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  .dashboard{
+  .dashboard {
     background-color: var(--background-800);
   }
 }

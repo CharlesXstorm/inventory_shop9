@@ -1,18 +1,19 @@
 import {
-  SvgHome,
-  SvgInventory,
-  SvgSales,
-  SvgPurchase,
-  SvgReports,
-  SvgDocuments,
+  home,
+  inventory,
+  sales,
+  purchase,
+  reports,
+  documents,
 } from "@/components/svgs";
+import { report } from "process";
 
 export const dashboard = [
   {
     id: 1,
     title: "Home",
     items: null,
-    icon: <SvgHome />,
+    icon: home,
     collapse: false,
   },
   {
@@ -23,7 +24,7 @@ export const dashboard = [
       { id: "2_2", title: "Price Lists" },
       { id: "2_3", title: "Inventory Adjustments" },
     ],
-    icon: <SvgInventory />,
+    icon: inventory,
     collapse: true,
   },
   {
@@ -31,11 +32,11 @@ export const dashboard = [
     title: "Sales",
     items: [
       { id: "3_1", title: "Sales Orders" },
-      { id: "3_2", title: "Invoices" },
-      { id: "3_3", title: "Sales Receipts" },
-      { id: "3_4", title: "Sales Return" },
+      { id: "3_2", title: "Sales Receipts" },
+      { id: "3_3", title: "Sales Return" },
+      { id: "3_4", title: "Invoices" },
     ],
-    icon: <SvgSales />,
+    icon: sales,
     collapse: true,
   },
   {
@@ -47,21 +48,21 @@ export const dashboard = [
       { id: "4_3", title: "Bills" },
       { id: "4_4", title: "Payments Made" },
     ],
-    icon: <SvgPurchase />,
+    icon: purchase,
     collapse: true,
   },
   {
     id: 5,
     title: "Reports",
     items: null,
-    icon: <SvgReports />,
+    icon: reports,
     collapse: false,
   },
   {
     id: 6,
     title: "Documents",
     items: null,
-    icon: <SvgDocuments />,
+    icon: documents,
     collapse: false,
   },
 ];
