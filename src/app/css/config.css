@@ -1,13 +1,16 @@
 :root {
-    --background: #ffffff;
-    --foreground: #171717;
-    --font-jost: 'jost', sans-serif;
-    --paddingBlock: 20px;
-  }
-  
-  /* @media (prefers-color-scheme: dark) {
+  --background: #ffffff;
+  --background-800: #27272A;
+  --foreground: #171717;
+  --font-jost: "jost", sans-serif;
+  --paddingBlock: 20px;
+  --paddingButton: 8px;
+}
+
+/* @media (prefers-color-scheme: dark) {
     :root {
       --background: #0a0a0a;
+      --background-800: #27272A;
       --foreground: #ededed;
       --font-jost: 'jost', sans-serif;
     }

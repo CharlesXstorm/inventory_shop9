@@ -14,6 +14,7 @@ const config: Config = {
       },
       padding: {
         paddingBlock: "var(--paddingBlock)",
+        paddingButton: "var(--paddingButton)",
       },
     },
   },
