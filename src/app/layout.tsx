@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jost.variable} antialiased`}>
-        <div className="container">
+        <div className="container_">
           <Dashboard />
           <div className="container__content">
             <Header />

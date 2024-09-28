@@ -41,3 +41,12 @@ export interface menuProps {
   icon: (color: string, width: string) => React.JSX.Element;
   collapse: boolean;
 }
+
+export interface inputProps {
+  className?: string;
+  type: string;
+  name?: string;
+  value?: string;
+  placeholder?: string;
+  disabled?: boolean;
+}
