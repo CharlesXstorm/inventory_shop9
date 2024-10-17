@@ -21,6 +21,10 @@ body {
   @apply flex justify-between bg-black w-[100%] text-white;
 }
 
+.cancel {
+  @apply absolute left-0 top-0 p-[1em];
+}
+
 .container_ {
   @apply flex w-[100%];
 }
@@ -46,7 +50,7 @@ body {
 }
 
 .dashboard {
-  @apply hidden lg:flex flex-col fixed lg:relative w-[60%] md:w-[40%] lg:w-[20%] xl:w-[15%] h-[100vh] overflow-hidden;
+  @apply lg:flex flex-col fixed lg:relative transition-transform w-[70%] md:w-[40%] lg:w-[20%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
@@ -61,16 +65,20 @@ body {
   @apply absolute top-0 h-full w-full overflow-y-scroll;
 }
 
+.footer {
+  @apply absolute bottom-0 left-0 w-[100%];
+}
+
 .gutter {
   @apply flex justify-center items-center w-[100%];
 }
 
 .hamburger {
-  @apply p-[2px] w-full rounded h-[2px] bg-[#F7941E];
+  @apply p-[2px] rounded h-[2px] bg-[#F7941E];
 }
 
 .header {
-  @apply flex justify-between items-center p-[1em] bg-black h-[10vh];
+  @apply flex justify-between items-center p-[1em] md:px-[2em] bg-black h-[10vh];
 }
 
 .header__brand {

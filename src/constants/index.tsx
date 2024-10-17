@@ -20,7 +20,7 @@ export const dashboard = [
     id: 2,
     title: "Inventory",
     items: [
-      { id: "2_1", title: "Add items" },
+      { id: "2_1", title: "Items" },
       { id: "2_2", title: "Price Lists" },
       { id: "2_3", title: "Inventory Adjustments" },
     ],

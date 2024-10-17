@@ -11,7 +11,7 @@ export const Svg: React.FC<svgProps> = ({
   isClicked,
   isHovered,
 }) => {
-  color = isHovered ? "#ffffff" : isClicked ? "#ffffff" : color;
+  color = isHovered ? "#ffffff" : (isClicked ? "#ffffff" : color);
 
   return (
     <span className={isClicked ? className : " "}>{svg(color, width)}</span>
