@@ -10,7 +10,7 @@ interface searchProps {
 const Search = ({ className, width }: searchProps) => {
   return (
     <div
-      className={[`${width} ${className}`, "search"].filter(Boolean).join(" ")}
+      className={[`${width} ${className}`, "search "].filter(Boolean).join(" ")}
     >
       <button type="button">
         <Svg svg={search} color="orange" />

@@ -77,8 +77,12 @@ body {
   @apply p-[2px] rounded h-[2px] bg-[#F7941E];
 }
 
-.header {
+/* .header {
   @apply flex justify-between items-center p-[1em] md:px-[2em] bg-black h-[10vh];
+} */
+
+.header {
+  @apply flex flex-col lg:flex-row justify-between items-center gap-4 p-[1em] md:px-[2em] bg-black h-[auto] lg:h-[10vh];
 }
 
 .header__brand {
@@ -89,13 +93,25 @@ body {
   @apply flex flex-col w-full gap-2 justify-center;
 }
 
+.header__left{
+  @apply flex justify-between gap-10 w-full
+}
+
+.header__right{
+  @apply flex justify-end items-center gap-5 text-white py-2 w-full
+}
+
 .input {
   @apply bg-zinc-900 px-1 w-full text-white focus:outline-none;
 }
 
 .search {
-  @apply flex gap-2 w-[50%] md:w-[30%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
+  @apply flex gap-2 w-[100%] md:w-[60%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
 }
+
+/* .search {
+  @apply flex gap-2 w-[50%] md:w-[30%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
+} */
 
 .svg__arrow {
   @apply rotate-90 transition-transform;
