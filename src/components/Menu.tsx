@@ -24,6 +24,7 @@ const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
         collapsible={collapse}
         isClicked={isClicked}
         isHovered={isHovered}
+        hover
         onClick={() => {
           setIsClicked((prev) => !prev);
           setClickedID(id);

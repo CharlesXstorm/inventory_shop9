@@ -14,7 +14,7 @@ body {
 }
 
 .button__primary {
-  @apply flex justify-between bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white;
+  @apply flex justify-between bg-orange-400 w-[100%] text-black ;
 }
 
 .button__secondary {
@@ -46,7 +46,7 @@ body {
 }
 
 .collapsible__menu {
-  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white;
+  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white hover:bg-black ;
 }
 
 .dashboard {
@@ -97,12 +97,44 @@ body {
   @apply flex justify-between gap-10 w-full
 }
 
+.header__menu{
+  @apply flex justify-between w-full px-[1em] py-[0.5em];
+}
+
 .header__right{
   @apply flex justify-end items-center gap-5 text-white py-2 w-full
 }
 
 .input {
   @apply bg-zinc-900 px-1 w-full text-white focus:outline-none;
+}
+
+.items__checkbox{
+  @apply flex justify-between w-[3em] lg:w-[4em] border border-blue-600 ;
+}
+
+.items__list{
+  @apply flex flex-col;
+}
+
+.items__list__body{
+  @apply w-full ;
+}
+
+.items__list__body__content{
+  @apply flex gap-2 ;
+}
+
+.items__list__header{
+  @apply flex gap-2 bg-zinc-200 ;
+}
+
+.items__list__content{
+  @apply flex justify-between p-2 w-full ;
+}
+
+.items__list__content > span{
+  @apply flex justify-between w-full;
 }
 
 .search {

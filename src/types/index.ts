@@ -13,8 +13,9 @@ export interface buttonProps extends PropsWithChildren {
   primary?: boolean;
   secondary?: boolean;
   collapsible: boolean;
-  isClicked: boolean;
-  isHovered: boolean;
+  isClicked?: boolean;
+  isHovered?: boolean;
+  hover?: boolean;
   onClick?: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
@@ -49,4 +50,17 @@ export interface inputProps {
   value?: string;
   placeholder?: string;
   disabled?: boolean;
+}
+
+export interface itemsHeaderProps {
+  index?: number;
+  item: string;
+}
+export interface partProps {
+  [key: string]: any;
+}
+export interface autopartsProps {
+  index: number;
+  item?: string;
+  part: partProps;
 }

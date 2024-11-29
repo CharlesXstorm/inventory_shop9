@@ -2,7 +2,7 @@ import React from "react";
 import Search from "./ui/Search";
 import Gutter from "./ui/Gutter";
 import Brand from "./ui/Brand";
-import { account, add, arrowLine, notification, Svg } from "./svgs";
+import { account, addBox, arrowLine, notification, Svg } from "./svgs";
 
 const Header = () => {
   return (
@@ -15,11 +15,22 @@ const Header = () => {
       </div>
 
       <div className="header__right">
-        <button className="flex gap-1 items-center">LOS-1<span><Svg svg={arrowLine} color={"orange"} width={"1em"} /></span></button>
+        <button className="flex gap-1 items-center">
+          LOS-1
+          <span>
+            <Svg svg={arrowLine} color={"orange"} width={"1em"} />
+          </span>
+        </button>
         <span>|</span>
-        <button ><Svg svg={add} color={"orange"} width={"2em"} /> </button>
-        <button><Svg svg={notification} color={"#ffffff"} width={"2em"} /> </button>
-        <button ><Svg svg={account} color={"orange"} width={"2em"} /> </button>
+        <button type="button">
+          <Svg svg={addBox} color={"orange"} width={"2em"} />{" "}
+        </button>
+        <button type="button">
+          <Svg svg={notification} color={"#ffffff"} width={"2em"} />{" "}
+        </button>
+        <button type="button">
+          <Svg svg={account} color={"orange"} width={"2em"} />{" "}
+        </button>
       </div>
       {/* <div className='header__brand'>
         <Brand />

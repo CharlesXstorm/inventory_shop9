@@ -66,3 +66,46 @@ export const dashboard = [
     collapse: false,
   },
 ];
+
+export const itemsListHeaderField = [
+  {
+    text: "NAME",
+    locked: true
+  },
+  {
+    text: "SKU",
+    locked: false
+  },
+  {
+    text: "STOCK IN HAND",
+    locked: false
+  },
+  {
+    text: "REORDER LEVEL",
+    locked: false
+  },
+  {
+    text: "DESCRIPTION",
+    locked: false
+  },
+  {
+    text: "MANUFACTURER",
+    locked: false
+  },
+  {
+    text: "EAN",
+    locked: false
+  },
+  {
+    text: "MPN",
+    locked: false
+  },
+  {
+    text: "ENN",
+    locked: false
+  },
+  {
+    text: "PURCHASE RATE",
+    locked: false
+  }
+]

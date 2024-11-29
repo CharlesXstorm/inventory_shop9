@@ -13,6 +13,7 @@ const Button: React.FC<buttonProps> = ({
   collapsible,
   isClicked,
   isHovered,
+  hover,
   onClick,
   onMouseEnter,
   onMouseLeave
@@ -24,6 +25,7 @@ const Button: React.FC<buttonProps> = ({
         `${className}`,
         primary && "button__primary",
         (secondary || isClicked) && "button__secondary",
+        hover && "hover:text-white hover:bg-black",
         "button",
       ]
         .filter(Boolean)
