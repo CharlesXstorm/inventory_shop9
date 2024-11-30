@@ -15,20 +15,20 @@ const Header = () => {
       </div>
 
       <div className="header__right">
-        <button className="flex gap-1 items-center">
-          LOS-1
-          <span>
+        <button data-title="Select Organisation" type="button" className="p-2 tooltip">
+          <span>NG-LOS-IYP-1</span>
+          <span className="inline-block px-1">
             <Svg svg={arrowLine} color={"orange"} width={"1em"} />
           </span>
         </button>
         <span>|</span>
-        <button type="button">
+        <button className="tooltip" data-title="Quick Create" type="button">
           <Svg svg={addBox} color={"orange"} width={"2em"} />{" "}
         </button>
-        <button type="button">
+        <button className="tooltip" data-title="Notifications" type="button">
           <Svg svg={notification} color={"#ffffff"} width={"2em"} />{" "}
         </button>
-        <button type="button">
+        <button className="tooltip" data-title="User" type="button">
           <Svg svg={account} color={"orange"} width={"2em"} />{" "}
         </button>
       </div>

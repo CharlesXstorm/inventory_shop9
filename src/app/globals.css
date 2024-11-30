@@ -10,11 +10,11 @@ body {
 }
 
 .button {
-  @apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px];
+  @apply flex gap-2 items-center rounded-[6px] lg:text-[12px] py-paddingButton px-[15px];
 }
 
 .button__primary {
-  @apply flex justify-between bg-orange-400 w-[100%] text-black ;
+  @apply flex justify-between bg-orange-400 w-[100%] text-black;
 }
 
 .button__secondary {
@@ -34,7 +34,7 @@ body {
 }
 
 .collapsible {
-  @apply w-[100%] mt-1 overflow-hidden;
+  @apply w-[100%] lg:text-[12px] mt-1 overflow-hidden;
 }
 
 .collapsible__collapse {
@@ -46,11 +46,11 @@ body {
 }
 
 .collapsible__menu {
-  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white hover:bg-black ;
+  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white hover:bg-black;
 }
 
 .dashboard {
-  @apply lg:flex flex-col fixed lg:relative transition-transform w-[70%] md:w-[40%] lg:w-[20%] h-[100vh] overflow-hidden;
+  @apply lg:flex flex-col z-[2] fixed lg:relative transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
@@ -93,47 +93,51 @@ body {
   @apply flex flex-col w-full gap-2 justify-center;
 }
 
-.header__left{
-  @apply flex justify-between gap-10 w-full
+.header__left {
+  @apply flex justify-between gap-10 w-full;
 }
 
-.header__menu{
-  @apply flex justify-between w-full px-[1em] py-[0.5em];
+.header__menu {
+  @apply flex justify-between text-[12px] w-full px-[1em] py-[1em];
 }
 
-.header__right{
-  @apply flex justify-end items-center gap-5 text-white py-2 w-full
+.header__right {
+  @apply flex justify-end items-center gap-5 text-white py-2 w-full;
 }
 
 .input {
   @apply bg-zinc-900 px-1 w-full text-white focus:outline-none;
 }
 
-.items__checkbox{
-  @apply flex justify-between w-[3em] lg:w-[4em] border border-blue-600 ;
+.items__checkbox {
+  @apply flex justify-end gap-2 w-[3em] ml-2 lg:w-[3em];
 }
 
-.items__list{
+.items__list {
   @apply flex flex-col;
 }
 
-.items__list__body{
-  @apply w-full ;
+.items__list__body {
+  @apply w-full;
 }
 
-.items__list__body__content{
-  @apply flex gap-2 ;
+.items__list__body__content {
+  @apply flex gap-2 border-t border-b py-2 cursor-pointer;
 }
 
-.items__list__header{
-  @apply flex gap-2 bg-zinc-200 ;
+.items__list__body__content:hover {
+  @apply bg-zinc-100;
 }
 
-.items__list__content{
-  @apply flex justify-between p-2 w-full ;
+.items__list__header {
+  @apply flex gap-2 bg-zinc-200;
 }
 
-.items__list__content > span{
+.items__list__content {
+  @apply flex justify-between text-[12px] p-2 w-full;
+}
+
+.items__list__content > span {
   @apply flex justify-between w-full;
 }
 
@@ -147,6 +151,36 @@ body {
 
 .svg__arrow {
   @apply rotate-90 transition-transform;
+}
+
+.tooltip{
+  position: relative;
+  display: inline-block; 
+  /* cursor: pointer; */
+}
+
+.tooltip::after {
+  content: attr(data-title);
+  position: absolute;
+  pointer-events: none;
+  bottom: -60%;
+  left: 50%;
+  color: white;
+  background: #333;
+  white-space: nowrap;
+  z-index: 1;
+  font-size: small;
+  padding: 4px;
+  border: none;
+  border-radius: 2px;
+  transform: translateX(0%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
 }
 
 h1 {

@@ -2,12 +2,13 @@ import { itemsListHeaderField } from "@/constants";
 import { autoparts } from "@/data";
 import { autopartsProps, itemsHeaderProps } from "@/types";
 import React from "react";
+import { settingBar, Svg } from "./svgs";
 
-const itemsObj = itemsListHeaderField.filter((item, index) => index < 4);
+const itemsObj = itemsListHeaderField.filter((item, index) => index < 5);
 const itemsText = itemsObj.map((item,index)=> item.text)
 
 const ItemsHeader: React.FC<itemsHeaderProps> = ({ index, item }) => {
-  return <span>{item}</span>;
+  return <span className="font-[500]">{item}</span>;
 };
 
 const AutoPartItem : React.FC<autopartsProps> = ({ index, item, part }) => {
@@ -21,7 +22,6 @@ const AutoPartItem : React.FC<autopartsProps> = ({ index, item, part }) => {
 const Autoparts: React.FC<autopartsProps> = ({ index, part }) => {
   return <div className="items__list__body__content">
   <span className="items__checkbox">
-    <button title="customise" type="button"></button>icn
     <input type="checkbox" />
   </span>
   <div className="items__list__content">
@@ -37,7 +37,7 @@ const ItemsList = () => {
     <div className="items__list">
       <div className="items__list__header">
         <span className="items__checkbox">
-          <button title="customise" type="button"></button>icn
+          <button className="tooltip" data-title="customise" type="button"><Svg svg={settingBar} width="1em" /></button>
           <input type="checkbox" />
         </span>
         <div className="items__list__content">
