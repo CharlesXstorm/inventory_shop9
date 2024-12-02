@@ -16,7 +16,7 @@ const Search = ({ className, width }: searchProps) => {
         <Svg svg={search} color="orange" />
       </button>
       <span className="w-[2px] p-[1px] h-[20px] bg-white rounded"></span>
-      <Input type="text" placeholder="search" />
+      <input className="bg-zinc-900 px-1 w-full text-white focus:outline-none" type="text" placeholder="search" />
     </div>
   );
 };

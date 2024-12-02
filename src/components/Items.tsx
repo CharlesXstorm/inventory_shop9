@@ -8,7 +8,7 @@ import { useStore } from "@/store";
 const Items = () => {
   const { itemView } = useStore();
   return (
-    <div className="w-full">
+    <div className="w-full flex-grow overflow-hidden">
       <>{itemView && <ItemsList />}</>
       <>{!itemView && <ItemsTile />}</>
     </div>

@@ -28,7 +28,7 @@ export default function RootLayout({
           <Dashboard />
           <div className="container__content">
             <Header />
-            <main>{children}</main>
+            <main className="container__body">{children}</main>
           </div>
         </div>
       </body>

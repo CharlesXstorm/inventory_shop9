@@ -5,8 +5,8 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
-      <MenuHeader />
+    <div className='page'>
+      <MenuHeader title={"Active Items"} toggle main />
       <Items />
     </div>
   )

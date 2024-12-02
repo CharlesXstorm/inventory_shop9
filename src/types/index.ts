@@ -43,13 +43,25 @@ export interface menuProps {
   collapse: boolean;
 }
 
+export interface menuheaderProps {
+  title: string;
+  toggle?: boolean;
+  main?: boolean;
+}
+
 export interface inputProps {
   className?: string;
+  id?: string;
   type: string;
   name?: string;
   value?: string;
+  accept?: string;
   placeholder?: string;
   disabled?: boolean;
+  maxFile?: number;
+  maxSize?: number;
+  maxWidth?: number;
+  maxHeight?: number;
 }
 
 export interface itemsHeaderProps {

@@ -7,6 +7,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-jost);
+  overflow: hidden;
 }
 
 .button {
@@ -29,8 +30,12 @@ body {
   @apply flex w-[100%];
 }
 
+.container__body {
+  @apply w-full flex-grow border-[2px] overflow-hidden;
+}
+
 .container__content {
-  @apply w-full;
+  @apply flex flex-col w-full h-[100vh] overflow-hidden;
 }
 
 .collapsible {
@@ -50,7 +55,7 @@ body {
 }
 
 .dashboard {
-  @apply lg:flex flex-col z-[2] fixed lg:relative transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
+  @apply lg:flex flex-col z-[3] fixed top-0 lg:sticky transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
@@ -82,7 +87,7 @@ body {
 } */
 
 .header {
-  @apply flex flex-col lg:flex-row justify-between items-center gap-4 p-[1em] md:px-[2em] bg-black h-[auto] lg:h-[10vh];
+  @apply flex flex-col lg:flex-row justify-between items-center gap-4 p-[1em] md:px-[2em] bg-black h-[auto];
 }
 
 .header__brand {
@@ -98,7 +103,7 @@ body {
 }
 
 .header__menu {
-  @apply flex justify-between text-[12px] w-full px-[1em] py-[1em];
+  @apply flex justify-between items-center border-b border-zinc-300 bg-white z-[2] text-[12px] w-full px-[1em] py-[1em];
 }
 
 .header__right {
@@ -106,7 +111,7 @@ body {
 }
 
 .input {
-  @apply bg-zinc-900 px-1 w-full text-white focus:outline-none;
+  @apply p-1 w-full rounded-[4px] border focus:outline-none;
 }
 
 .items__checkbox {
@@ -114,11 +119,11 @@ body {
 }
 
 .items__list {
-  @apply flex flex-col;
+  @apply flex flex-col relative h-full w-full;
 }
 
 .items__list__body {
-  @apply w-full;
+  @apply w-full flex-grow overflow-scroll;
 }
 
 .items__list__body__content {
@@ -130,7 +135,7 @@ body {
 }
 
 .items__list__header {
-  @apply flex gap-2 bg-zinc-200;
+  @apply flex gap-2 h-[auto] bg-zinc-200;
 }
 
 .items__list__content {
@@ -139,6 +144,10 @@ body {
 
 .items__list__content > span {
   @apply flex justify-between w-full;
+}
+
+.page {
+  @apply relative h-full flex flex-col;
 }
 
 .search {
@@ -153,9 +162,9 @@ body {
   @apply rotate-90 transition-transform;
 }
 
-.tooltip{
+.tooltip {
   position: relative;
-  display: inline-block; 
+  display: inline-block;
   /* cursor: pointer; */
 }
 
@@ -181,6 +190,22 @@ body {
 
 .tooltip:hover::after {
   opacity: 1;
+}
+
+.uploadbox {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.uploadbox:hover {
+  border-color: chartreuse;
 }
 
 h1 {
