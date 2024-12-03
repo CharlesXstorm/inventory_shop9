@@ -44,6 +44,7 @@ const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
             <Collapsible_menu
               key={item.id}
               id={item.id}
+              path={item.path}
               className="collapsible__menu"
             >
               {item.title}

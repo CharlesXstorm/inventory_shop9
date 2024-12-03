@@ -58,15 +58,14 @@ const filePromise = (
                 reject(
                   `Each image must be less than ${maxWidth}x${maxHeight} pixels.`
                 );
-              } else {
-                fileInput.files = fileList;
-                resolve(`${fileInput.files}`);
               }
             };
           } else {
             reject(`Error: Each file must not exceed ${maxSize}byte.`);
           }
         }
+        fileInput.files = fileList;
+        resolve(fileArray);
       } else {
         reject(`Error: number of uploads must not exceed ${maxFile}`);
       }

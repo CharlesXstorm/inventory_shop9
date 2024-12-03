@@ -3,9 +3,10 @@ import Input from "./ui/Input";
 
 const NewItem = () => {
   return (
-    <div className="newitem flex flex-col gap-4 p-[10px]">
-      <div className="newitem__content flex flex-col lg:flex-row lg:justify-between gap-6">
-        <div className="newitem__content__form flex flex-col gap-6 lg:w-[50%]">
+    <div className="newitem flex flex-col gap-4 p-[1em]">
+      <div className="newitem__content flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
+        
+        <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
           <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
             <label htmlFor="category" className="w-[25%] text-red-600">Category*</label>
             <Input id="category" name="category" type="text" placeholder="select category" />
@@ -33,7 +34,7 @@ const NewItem = () => {
         </div>
       </div>
 
-      <div className="newitem__content"></div>
+      <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]"></div>
     </div>
   );
 };

@@ -1,17 +1,29 @@
 "use client";
 
 import React from "react";
-import Button from "./ui/Button";
-import { add, arrowLine, cancel, list, Svg, tile } from "./svgs";
+import { useRouter } from "next/navigation";
 import { useStore } from "@/store";
 import { menuheaderProps } from "@/types";
+import Button from "./ui/Button";
+import { add, arrowLine, cancel, list, Svg, tile } from "./svgs";
 
 const MenuHeader: React.FC<menuheaderProps> = ({
   title,
   toggle = false,
   main = false,
+  path,
 }) => {
   const { itemView, setItemView } = useStore();
+  const router = useRouter();
+
+  const cancelHandler = ()=>{
+    router.back()
+  }
+
+  const navigate = () => {
+    router.push(`${path}/new`);
+  };
+
   return (
     <div className="header__menu">
       <button
@@ -28,7 +40,7 @@ const MenuHeader: React.FC<menuheaderProps> = ({
 
       {main && (
         <div className="flex justify-center gap-4">
-          <Button collapsible={false} primary>
+          <Button onClick={navigate} collapsible={false} primary>
             <span>
               <Svg svg={add} width="1em" />
             </span>
@@ -61,7 +73,7 @@ const MenuHeader: React.FC<menuheaderProps> = ({
 
       {!main && (
         <div className="flex">
-          <button>
+          <button onClick={cancelHandler}>
             <Svg svg={cancel} width="1.5em" />{" "}
           </button>
         </div>

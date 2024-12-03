@@ -208,6 +208,14 @@ body {
   border-color: chartreuse;
 }
 
+.uploadcontainer{
+  @apply flex flex-col w-full;
+}
+
+.uploadinfo{
+  @apply py-2 max-h-[100px] w-[200px] overflow-scroll;
+}
+
 h1 {
   font-weight: 1000;
   color: white;

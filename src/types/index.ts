@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+// import { Url } from "url";
 
 export interface gutterProps extends PropsWithChildren {
   className?: string;
@@ -34,6 +35,7 @@ export interface svgProps {
 export interface itemProps {
   id: string;
   title: string;
+  path: string;
 }
 export interface menuProps {
   id: string;
@@ -47,6 +49,7 @@ export interface menuheaderProps {
   title: string;
   toggle?: boolean;
   main?: boolean;
+  path?: string;
 }
 
 export interface inputProps {
