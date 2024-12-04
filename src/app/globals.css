@@ -146,6 +146,14 @@ body {
   @apply flex justify-between w-full;
 }
 
+.newitem__content__form__input {
+  @apply flex items-center lg:flex-row gap-6;
+}
+
+.newitem__content__form__input > label {
+  @apply w-[25%] flex items-center gap-1;
+}
+
 .page {
   @apply relative h-full flex flex-col;
 }
@@ -172,11 +180,12 @@ body {
   content: attr(data-title);
   position: absolute;
   pointer-events: none;
+  /* max-width: 200px;  */
   bottom: -60%;
   left: 50%;
   color: white;
   background: #333;
-  white-space: nowrap;
+  white-space: pre;
   z-index: 1;
   font-size: small;
   padding: 4px;
@@ -196,7 +205,7 @@ body {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  border: 1px dashed #ccc;
+  border: 1px dashed #333;
   border-radius: 8px;
   width: 200px;
   height: 200px;
@@ -208,11 +217,11 @@ body {
   border-color: chartreuse;
 }
 
-.uploadcontainer{
+.uploadcontainer {
   @apply flex flex-col w-full;
 }
 
-.uploadinfo{
+.uploadinfo {
   @apply py-2 max-h-[100px] w-[200px] overflow-scroll;
 }
 

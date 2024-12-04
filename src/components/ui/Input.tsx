@@ -99,6 +99,7 @@ const Input: React.FC<inputProps> = ({
                 }
               }}
               className="hidden"
+              name={name}
               type={type}
               accept={accept}
             />
