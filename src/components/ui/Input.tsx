@@ -9,6 +9,8 @@ const Input: React.FC<inputProps> = ({
   className,
   id,
   type,
+  rows,
+  cols,
   name,
   value,
   accept,
@@ -127,6 +129,8 @@ const Input: React.FC<inputProps> = ({
         </div>
       );
     }
+  } else if (type === "textarea") {
+    return <textarea className="w-full border rounded-[8px] p-2" id={id} rows={rows} cols={cols} name={name} placeholder={placeholder}></textarea>;
   } else {
     return (
       <>

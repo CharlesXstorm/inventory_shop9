@@ -1,165 +1,285 @@
-"use client"
+"use client";
 
-import React, { useEffect } from "react";
+import React, { FormEvent } from "react";
 import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
 
 const NewItem = () => {
+  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', "category");
+    console.log("submitted", formData.getAll("name"));
+  };
   return (
-    <div className="newitem text-[14px] flex flex-col overflow-scroll">
-      <div className="newitem__content bg-zinc-100 px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
-        <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
-          <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
-            <label htmlFor="category" className="w-[25%] text-red-600">
-              Category*
-            </label>
+    <div className="newitem overflow-scroll">
+      <form onSubmit={submitHandler} className="text-[14px] flex flex-col">
+        <div className="newitem__content bg-zinc-100 px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
+          <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
+            <div className="newitem__content__form__input">
+              <label htmlFor="category" className="text-red-600">
+                Category*
+              </label>
+              <Input
+                id="category"
+                name="category"
+                type="text"
+                placeholder="select category"
+              />
+            </div>
+            <div className="newitem__content__form__input flex">
+              <label htmlFor="part_name" className="text-red-600">
+                Name*
+              </label>
+              <Input
+                id="part_name"
+                name="part name"
+                type="text"
+                placeholder="select part name"
+              />
+            </div>
+            <div className="newitem__content__form__input flex">
+              <label htmlFor="brand">Brand(s)</label>
+              <Input
+                id="brand"
+                name="brand"
+                type="text"
+                placeholder="car brand"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="model">Model(s)</label>
+              <Input
+                id="model"
+                name="model"
+                type="text"
+                placeholder="car model"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="year">Year</label>
+              <Input
+                id="year"
+                name="year"
+                type="text"
+                placeholder="select year"
+              />
+            </div>
+          </div>
+
+          <div className="flex w-[50%]">
             <Input
-              id="category"
-              name="category"
-              type="text"
-              placeholder="select category"
+              type="file"
+              accept="image/png, image/jpg, image/jpeg"
+              maxSize={300}
             />
           </div>
-          <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
-            <label htmlFor="part_name" className="w-[25%] text-red-600">
-              Name*
-            </label>
-            <Input
-              id="part_name"
-              name="part name"
-              type="text"
-              placeholder="select part name"
-            />
+        </div>
+        {
+          ///////////////////////////////////////////////////////////
+        }
+        <div className="newitem__content px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
+          <div className="newitem__content__form grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            <div className="newitem__content__form__input">
+              <label htmlFor="manufacturer">Manufacturer</label>
+              <Input
+                id="manufacturer"
+                name="manufacturer"
+                type="text"
+                placeholder="Select or Add Manufacturer"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="dimension">Dimension</label>
+              <Input
+                id="dimension"
+                name="dimension"
+                type="text"
+                placeholder="dimension"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="weight">Weight</label>
+              <Input
+                id="weight"
+                name="weight"
+                type="text"
+                placeholder="weight"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="capacity">Capacity</label>
+              <Input
+                id="capacity"
+                name="capacity"
+                type="text"
+                placeholder="capacity"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="size">Size</label>
+              <Input id="size" name="size" type="text" placeholder="size" />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="volume">Volume</label>
+              <Input
+                id="volume"
+                name="volume"
+                type="text"
+                placeholder="volume"
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="sku">
+                SKU
+                <span className="tooltip" data-title="Stock keeping unit">
+                  <Svg svg={question} width="1.5em" />
+                </span>
+              </label>
+              <Input id="sku" name="sku" type="text" placeholder="sku" />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="mpn">
+                MPN
+                <span className="tooltip" data-title="Manufacturer Part Number">
+                  <Svg svg={question} width="1.5em" />
+                </span>
+              </label>
+              <Input id="mpn" name="mpn" type="text" placeholder="mpn" />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="ean">
+                EAN
+                <span
+                  className="tooltip"
+                  data-title="European Article Number \n used for barcode scan"
+                >
+                  <Svg svg={question} width="1.5em" />
+                </span>
+              </label>
+              <Input id="ean" name="ean" type="text" placeholder="ean" />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="enn">
+                ENN
+                <span className="tooltip" data-title="Engine Number">
+                  <Svg svg={question} width="1.5em" />
+                </span>
+              </label>
+              <Input id="enn" name="enn" type="text" placeholder="enn" />
+            </div>
           </div>
-          <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
-            <label htmlFor="brand" className="w-[25%]">
-              Brand(s)
-            </label>
-            <Input
-              id="brand"
-              name="brand"
-              type="text"
-              placeholder="car brand"
-            />
+        </div>
+        {
+          //////////sales and purchase info/////////////////////////////////////////////////////////////
+        }
+
+        <hr />
+
+        <div className="newitem__content px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
+          <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
+            <p className="form__title">Selling Information</p>
+            <div className="newitem__content__form__input">
+              <label
+                htmlFor="selling"
+                data-title="The rate at which you're going \n to sell this item"
+                className="text-red-600 underline decoration-dotted tooltip"
+              >
+                Selling Price*
+              </label>
+              <Input
+                id="selling"
+                name="selling"
+                type="text"
+                placeholder="Enter Selling Price"
+              />
+            </div>
+            <div className="newitem__content__form__input flex">
+              <label htmlFor="sales_description" className="self-start">
+                Description
+              </label>
+              <Input
+                id="sales_description"
+                type="textarea"
+                rows={3}
+                placeholder="Sales Description"
+              />
+            </div>
           </div>
-          <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
-            <label htmlFor="model" className="w-[25%]">
-              Model(s)
-            </label>
-            <Input
-              id="model"
-              name="model"
-              type="text"
-              placeholder="car model"
-            />
+
+          <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
+            <p className="form__title">Purchase Information</p>
+            <div className="newitem__content__form__input">
+              <label
+                htmlFor="purchase"
+                className="text-red-600 underline decoration-dotted tooltip"
+                data-title="The rate at which you bought \n this item"
+              >
+                Cost Price*
+              </label>
+              <Input id="purchase" name="purchase" type="text" />
+            </div>
+            <div className="newitem__content__form__input">
+              <label htmlFor="purchase_description" className="self-start">
+                Description
+              </label>
+              <Input
+                id="purchase_description"
+                name="purchase_description"
+                type="textarea"
+                rows={3}
+                placeholder="Purchase Description"
+              />
+            </div>
           </div>
-          <div className="newitem__content__form__input flex items-center lg:flex-row gap-6">
-            <label htmlFor="year" className="w-[25%]">
-              Year
-            </label>
-            <Input
-              id="year"
-              name="year"
-              type="text"
-              placeholder="select year"
-            />
+        </div>
+        {
+          //////track inventory//////////////////////////////////////////////////////
+        }
+
+        <hr />
+
+        <div className="newitem__content px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
+          <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
+            <p className="form__title">Track Inventory</p>
+            <div className="newitem__content__form__input">
+              <label
+                htmlFor="openstock"
+                data-title="The stock available for sale at \n the beginning of the accounting period"
+                className="underline decoration-dotted tooltip"
+              >
+                Opening Stock
+              </label>
+              <Input id="openstock" name="openstock" type="text" />
+            </div>
+          </div>
+
+          <div className="newitem__content__form flex flex-col md:self-end gap-6 md:w-[50%]">
+            <div className="newitem__content__form__input">
+              <label
+                htmlFor="reorder"
+                className="underline decoration-dotted tooltip"
+                data-title="When the stock reaches the reorder point, \n a notification will be sent to you"
+              >
+                Reorder Point
+              </label>
+              <Input id="reorder" name="reorder" type="text" />
+            </div>
           </div>
         </div>
 
-        <div className="flex w-[50%]">
-          <Input
-            type="file"
-            accept="image/png, image/jpg, image/jpeg"
-            maxSize={300}
+        <hr />
+
+        <div className="form__buttons w-full px-[1em] py-[2em]">
+          <input
+            type="submit"
+            name="save"
+            value="save"
+            className="button cursor-pointer bg-orange-500 font-[600] lg:text-[14px]"
           />
         </div>
-      </div>
-      {
-        ///////////////////////////////////////////////////////////
-      }
-      <div className="newitem__content px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
-        <div className="newitem__content__form grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
-          <div className="newitem__content__form__input">
-            <label htmlFor="manufacturer">Manufacturer</label>
-            <Input
-              id="manufacturer"
-              name="manufacturer"
-              type="text"
-              placeholder="Select or Add Manufacturer"
-            />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="dimension">Dimension</label>
-            <Input
-              id="dimension"
-              name="dimension"
-              type="text"
-              placeholder="dimension"
-            />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="weight">Weight</label>
-            <Input id="weight" name="weight" type="text" placeholder="weight" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="capacity">Capacity</label>
-            <Input
-              id="capacity"
-              name="capacity"
-              type="text"
-              placeholder="capacity"
-            />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="size">Size</label>
-            <Input id="size" name="size" type="text" placeholder="size" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="volume">Volume</label>
-            <Input id="volume" name="volume" type="text" placeholder="volume" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="sku">
-              SKU
-              <span className="tooltip" data-title="Stock keeping unit">
-                <Svg svg={question} width="1.5em" />
-              </span>
-            </label>
-            <Input id="sku" name="sku" type="text" placeholder="sku" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="mpn">
-              MPN
-              <span className="tooltip" data-title="Manufacturer Part Number">
-                <Svg svg={question} width="1.5em" />
-              </span>
-            </label>
-            <Input id="mpn" name="mpn" type="text" placeholder="mpn" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="ean">
-              EAN
-              <span
-                className="tooltip"
-                data-title="European Article Number \n used for barcode scan"
-              >
-                <Svg svg={question} width="1.5em" />
-              </span>
-            </label>
-            <Input id="ean" name="ean" type="text" placeholder="ean" />
-          </div>
-          <div className="newitem__content__form__input">
-            <label htmlFor="enn">
-              ENN
-              <span className="tooltip" data-title="Engine Number">
-                <Svg svg={question} width="1.5em" />
-              </span>
-            </label>
-            <Input id="enn" name="enn" type="text" placeholder="enn" />
-          </div>
-        </div>
-      </div>
+      </form>
 
       <Clientscript />
     </div>

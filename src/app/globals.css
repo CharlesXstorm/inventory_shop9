@@ -74,6 +74,10 @@ body {
   @apply absolute bottom-0 left-0 w-[100%];
 }
 
+.form__title{
+  @apply text-[16px] font-[500]
+}
+
 .gutter {
   @apply flex justify-center items-center w-[100%];
 }
@@ -205,7 +209,7 @@ body {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  border: 1px dashed #333;
+  border: 1px dashed #999;
   border-radius: 8px;
   width: 200px;
   height: 200px;

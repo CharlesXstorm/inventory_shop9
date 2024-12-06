@@ -56,6 +56,8 @@ export interface inputProps {
   className?: string;
   id?: string;
   type: string;
+  rows?: number;
+  cols?:number;
   name?: string;
   value?: string;
   accept?: string;
