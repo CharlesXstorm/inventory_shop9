@@ -1,16 +1,26 @@
 "use client";
 
-import React, { FormEvent } from "react";
+import React, { useState } from "react";
 import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
 
 const NewItem = () => {
-  const submitHandler = (e: FormEvent<HTMLFormElement>) => {
+  const [data, setData] = useState<{ [key: string]: any }>({});
+
+  const changeHandler = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('name', "category");
-    console.log("submitted", formData.getAll("name"));
+    formData.append("category", data["category"]);
+    console.log("submitted", formData.get("category"));
   };
   return (
     <div className="newitem overflow-scroll">
@@ -26,6 +36,7 @@ const NewItem = () => {
                 name="category"
                 type="text"
                 placeholder="select category"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input flex">
@@ -34,7 +45,7 @@ const NewItem = () => {
               </label>
               <Input
                 id="part_name"
-                name="part name"
+                name="part_name"
                 type="text"
                 placeholder="select part name"
               />
@@ -71,6 +82,7 @@ const NewItem = () => {
           <div className="flex w-[50%]">
             <Input
               type="file"
+              name="images"
               accept="image/png, image/jpg, image/jpeg"
               maxSize={300}
             />
@@ -201,6 +213,7 @@ const NewItem = () => {
               </label>
               <Input
                 id="sales_description"
+                name="sales_description"
                 type="textarea"
                 rows={3}
                 placeholder="Sales Description"

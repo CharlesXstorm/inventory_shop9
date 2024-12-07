@@ -20,6 +20,7 @@ const Input: React.FC<inputProps> = ({
   maxSize = 300,
   maxWidth = 1500,
   maxHeight = 1500,
+  onChange,
 }) => {
   const [info, setInfo] = useState<any[]>([]);
   const [error, setError] = useState("");
@@ -130,11 +131,22 @@ const Input: React.FC<inputProps> = ({
       );
     }
   } else if (type === "textarea") {
-    return <textarea className="w-full border rounded-[8px] p-2" id={id} rows={rows} cols={cols} name={name} placeholder={placeholder}></textarea>;
+    return (
+      <textarea
+        onChange={onChange}
+        className="w-full border rounded-[8px] p-2"
+        id={id}
+        rows={rows}
+        cols={cols}
+        name={name}
+        placeholder={placeholder}
+      ></textarea>
+    );
   } else {
     return (
       <>
         <input
+          onChange={onChange}
           id={id}
           className={[`${className}`, "input"].filter(Boolean).join(" ")}
           type={type}

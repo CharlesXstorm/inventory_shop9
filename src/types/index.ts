@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import React,{ PropsWithChildren } from "react";
 // import { Url } from "url";
 
 export interface gutterProps extends PropsWithChildren {
@@ -67,6 +67,7 @@ export interface inputProps {
   maxSize?: number;
   maxWidth?: number;
   maxHeight?: number;
+  onChange?: (e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>)=> void;
 }
 
 export interface itemsHeaderProps {
