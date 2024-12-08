@@ -2,7 +2,7 @@
 
 import { inputProps } from "@/types";
 import React, { useState } from "react";
-import { image, Svg } from "../svgs";
+import { arrowLine, image, Svg } from "../svgs";
 import { uiscript } from "@/script";
 
 const Input: React.FC<inputProps> = ({

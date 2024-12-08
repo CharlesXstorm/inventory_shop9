@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
+import Dropdown from "./ui/Dropdown";
+import { categories } from "@/data";
 
 const NewItem = () => {
   const [data, setData] = useState<{ [key: string]: any }>({});
@@ -19,7 +21,11 @@ const NewItem = () => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("category", data["category"]);
+
+    Object.keys(data).forEach((item)=>{
+      formData.append(item, data[item]);
+    })
+    
     console.log("submitted", formData.get("category"));
   };
   return (
@@ -31,13 +37,14 @@ const NewItem = () => {
               <label htmlFor="category" className="text-red-600">
                 Category*
               </label>
-              <Input
+              <Dropdown options={categories} />
+              {/* <Input
                 id="category"
                 name="category"
-                type="text"
+                type="dropdown"
                 placeholder="select category"
                 onChange={changeHandler}
-              />
+              /> */}
             </div>
             <div className="newitem__content__form__input flex">
               <label htmlFor="part_name" className="text-red-600">
@@ -48,6 +55,7 @@ const NewItem = () => {
                 name="part_name"
                 type="text"
                 placeholder="select part name"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input flex">
@@ -57,6 +65,7 @@ const NewItem = () => {
                 name="brand"
                 type="text"
                 placeholder="car brand"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -66,6 +75,7 @@ const NewItem = () => {
                 name="model"
                 type="text"
                 placeholder="car model"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -75,6 +85,7 @@ const NewItem = () => {
                 name="year"
                 type="text"
                 placeholder="select year"
+                onChange={changeHandler}
               />
             </div>
           </div>
@@ -100,6 +111,7 @@ const NewItem = () => {
                 name="manufacturer"
                 type="text"
                 placeholder="Select or Add Manufacturer"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -109,6 +121,7 @@ const NewItem = () => {
                 name="dimension"
                 type="text"
                 placeholder="dimension"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -118,6 +131,7 @@ const NewItem = () => {
                 name="weight"
                 type="text"
                 placeholder="weight"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -127,11 +141,12 @@ const NewItem = () => {
                 name="capacity"
                 type="text"
                 placeholder="capacity"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="size">Size</label>
-              <Input id="size" name="size" type="text" placeholder="size" />
+              <Input id="size" name="size" type="text" placeholder="size" onChange={changeHandler} />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="volume">Volume</label>
@@ -140,6 +155,7 @@ const NewItem = () => {
                 name="volume"
                 type="text"
                 placeholder="volume"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input">
@@ -149,7 +165,7 @@ const NewItem = () => {
                   <Svg svg={question} width="1.5em" />
                 </span>
               </label>
-              <Input id="sku" name="sku" type="text" placeholder="sku" />
+              <Input id="sku" name="sku" type="text" placeholder="sku" onChange={changeHandler} />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="mpn">
@@ -158,7 +174,7 @@ const NewItem = () => {
                   <Svg svg={question} width="1.5em" />
                 </span>
               </label>
-              <Input id="mpn" name="mpn" type="text" placeholder="mpn" />
+              <Input id="mpn" name="mpn" type="text" placeholder="mpn" onChange={changeHandler} />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="ean">
@@ -170,7 +186,7 @@ const NewItem = () => {
                   <Svg svg={question} width="1.5em" />
                 </span>
               </label>
-              <Input id="ean" name="ean" type="text" placeholder="ean" />
+              <Input id="ean" name="ean" type="text" placeholder="ean" onChange={changeHandler} />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="enn">
@@ -179,7 +195,7 @@ const NewItem = () => {
                   <Svg svg={question} width="1.5em" />
                 </span>
               </label>
-              <Input id="enn" name="enn" type="text" placeholder="enn" />
+              <Input id="enn" name="enn" type="text" placeholder="enn" onChange={changeHandler} />
             </div>
           </div>
         </div>
@@ -205,6 +221,7 @@ const NewItem = () => {
                 name="selling"
                 type="text"
                 placeholder="Enter Selling Price"
+                onChange={changeHandler}
               />
             </div>
             <div className="newitem__content__form__input flex">
@@ -217,6 +234,7 @@ const NewItem = () => {
                 type="textarea"
                 rows={3}
                 placeholder="Sales Description"
+                onChange={changeHandler}
               />
             </div>
           </div>
@@ -231,7 +249,7 @@ const NewItem = () => {
               >
                 Cost Price*
               </label>
-              <Input id="purchase" name="purchase" type="text" />
+              <Input id="purchase" name="purchase" type="text" onChange={changeHandler} />
             </div>
             <div className="newitem__content__form__input">
               <label htmlFor="purchase_description" className="self-start">
@@ -243,6 +261,7 @@ const NewItem = () => {
                 type="textarea"
                 rows={3}
                 placeholder="Purchase Description"
+                onChange={changeHandler}
               />
             </div>
           </div>
@@ -264,7 +283,7 @@ const NewItem = () => {
               >
                 Opening Stock
               </label>
-              <Input id="openstock" name="openstock" type="text" />
+              <Input id="openstock" name="openstock" type="text" onChange={changeHandler}/>
             </div>
           </div>
 
@@ -277,7 +296,7 @@ const NewItem = () => {
               >
                 Reorder Point
               </label>
-              <Input id="reorder" name="reorder" type="text" />
+              <Input id="reorder" name="reorder" type="text" onChange={changeHandler} />
             </div>
           </div>
         </div>
