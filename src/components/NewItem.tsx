@@ -5,7 +5,7 @@ import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
 import Dropdown from "./ui/Dropdown";
-import { categories } from "@/data";
+import { categoriesList } from "@/data";
 
 const NewItem = () => {
   const [data, setData] = useState<{ [key: string]: any }>({});
@@ -46,7 +46,7 @@ const NewItem = () => {
                 id="category"
                 name="category"
                 onChange={selectHandler}
-                options={categories}
+                options={categoriesList}
               />
             </div>
             <div className="newitem__content__form__input flex">

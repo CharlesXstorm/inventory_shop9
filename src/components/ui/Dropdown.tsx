@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { arrowLine, Svg } from "../svgs";
 import Search from "./Search";
 import { inputProps } from "@/types";
@@ -37,7 +37,7 @@ const DropdownItems: React.FC<dropdownitemsProps> = ({
     <button
       type="button"
       onClick={setOption}
-      className="dropdown__button w-full flex justify-between items-center rounded-[4px] p-1 bg-white hover:bg-orange-400"
+      className="dropdown__button w-full flex justify-between items-center rounded-[4px] p-1 px-4 bg-white hover:bg-orange-400"
     >
       {option}
     </button>
@@ -48,6 +48,8 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   const [title, setTitle] = useState(options[0]);
   const [search, setSearch] = useState("");
   const [dropdown, setDropdown] = useState(false);
+
+  const btnRef = useRef<HTMLButtonElement>(null);
 
   const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
@@ -70,6 +72,7 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   return (
     <div id={id} className="dropdown w-full relative">
       <button
+        ref={btnRef}
         onClick={clickHandler}
         type="button"
         className="dropdown__button w-full flex justify-between items-center border-[1px] rounded-[4px] p-1 bg-white"
