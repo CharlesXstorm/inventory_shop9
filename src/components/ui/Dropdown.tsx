@@ -67,10 +67,11 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
         );
 
   useEffect(() => {
-    onChange(name, options[0]);
-  }, []);
+    setTitle(options[0])
+  }, [options]);
+
   return (
-    <div id={id} className="dropdown w-full relative">
+    <div id={id} className="dropdown border-[2px] border-blue-600 w-full relative">
       <button
         ref={btnRef}
         onClick={clickHandler}
@@ -88,7 +89,7 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
       </button>
 
       {dropdown && (
-        <div className="dropdown__info flex flex-col absolute top-[110%] w-full border-[2px] h-[10em] bg-white rounded-[4px]">
+        <div className="dropdown__info flex flex-col absolute z-[3] top-[110%] w-full border-[2px] h-[10em] bg-white rounded-[4px]">
           <div className="p-1 flex w-full h-auto">
             <input
               type="text"

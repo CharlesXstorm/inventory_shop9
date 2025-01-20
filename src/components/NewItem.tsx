@@ -5,10 +5,13 @@ import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
 import Dropdown from "./ui/Dropdown";
-import { categoriesList } from "@/data";
+import { categories, subcategories } from "@/data";
 
 const NewItem = () => {
-  const [data, setData] = useState<{ [key: string]: any }>({});
+
+  const [data, setData] = useState<{ [key: string]: any }>({"category":"Accessories"});
+
+  let dynamicCategories = subcategories[data["category"]]
 
   const changeHandler = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,7 +29,7 @@ const NewItem = () => {
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("data",data)
+    console.log("data", data);
     const formData = new FormData();
 
     Object.keys(data).forEach((item) => {
@@ -35,8 +38,10 @@ const NewItem = () => {
 
     console.log("submitted", formData.get("category"));
   };
+
   return (
     <div className="newitem overflow-scroll">
+      <button onClick={()=> console.log("button clicked")} type="button" className="absolute top-0 left-0 z-0 border-[2px] border-green-600 w-[100%] h-[100vh] "></button>
       <form onSubmit={submitHandler} className="text-[14px] flex flex-col">
         <div className="newitem__content bg-zinc-100 px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
           <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
@@ -46,7 +51,16 @@ const NewItem = () => {
                 id="category"
                 name="category"
                 onChange={selectHandler}
-                options={categoriesList}
+                options={categories}
+              />
+            </div>
+            <div className="newitem__content__form__input">
+              <label className="text-red-600">Sub Category*</label>
+              <Dropdown
+                id="subcategory"
+                name="subcategory"
+                onChange={selectHandler}
+                options={dynamicCategories??[]}
               />
             </div>
             <div className="newitem__content__form__input flex">

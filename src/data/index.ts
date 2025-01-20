@@ -181,7 +181,11 @@ export const autoparts = [
   },
 ];
 
-export const categories = {
+export interface subProps {
+  [key: string]: any;
+}
+
+export const subcategories: subProps = {
   Accessories: [
     "Air Fresheners",
     "Air Horns",
@@ -798,8 +802,8 @@ export const categories = {
   ],
 };
 
-export const categoriesList = [
-  " Accessories",
+export const categories = [
+  "Accessories",
   "Air Intake",
   "Alternators and Starters",
   "Apparel",

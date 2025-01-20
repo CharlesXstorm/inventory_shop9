@@ -10,11 +10,16 @@ const processFile = (inputPath, outputPath) => {
 
     const processedData = data
       .split("\n")
-      .map((item) => `"${item.replace(/\r/g, "")}"`).join(",");
-    // .map((item) => `"${item}"`)
-    // .join(",");
+      .map((item) => {
+        if (item !== "\r") {
+          return `"${item.replace(/\r/g, "")}"`;
+        } else {
+          return "";
+        }
+      })
+      .filter((item) => item.length != 0)
+      .join(",");
 
-    // return console.log("processedFile", processedData);
     fs.writeFile(outputPath, processedData, "utf8", (err) => {
       if (err) {
         return console.log("Error writing file");
