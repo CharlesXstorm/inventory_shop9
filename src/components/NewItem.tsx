@@ -41,7 +41,6 @@ const NewItem = () => {
 
   return (
     <div className="newitem overflow-scroll">
-      <button onClick={()=> console.log("button clicked")} type="button" className="absolute top-0 left-0 z-0 border-[2px] border-green-600 w-[100%] h-[100vh] "></button>
       <form onSubmit={submitHandler} className="text-[14px] flex flex-col">
         <div className="newitem__content bg-zinc-100 px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
           <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">

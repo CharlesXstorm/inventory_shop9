@@ -48,15 +48,29 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   const [title, setTitle] = useState(options[0]);
   const [search, setSearch] = useState("");
   const [dropdown, setDropdown] = useState(false);
+  const [clicked, setClicked] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
 
   const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
   const clickHandler = () => {
-    setDropdown((prev) => !prev);
+    setDropdown((prev) => {
+      if (!prev && !clicked) {
+        console.log("previous state is blurred not clicked");
+        setClicked(true);
+        return true;
+      } else if (!prev && clicked) {
+        console.log("blurred clicked");
+        setClicked(false);
+        return false;
+      } else {
+        return false;
+      }
+    });
   };
 
   let filteredOptions =
@@ -67,11 +81,22 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
         );
 
   useEffect(() => {
-    setTitle(options[0])
+    setTitle(options[0]);
   }, [options]);
 
+  // useEffect(() => {
+  //   if (dropdown) {
+  //     searchRef?.current?.focus();
+  //   } else {
+  //     setClicked(false);
+  //   }
+  // }, [dropdown]);
+
   return (
-    <div id={id} className="dropdown border-[2px] border-blue-600 w-full relative">
+    <div
+      id={id}
+      className="dropdown border-[2px] border-blue-600 w-full relative"
+    >
       <button
         ref={btnRef}
         onClick={clickHandler}
@@ -88,13 +113,24 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
         </span>
       </button>
 
-      {dropdown && (
-        <div className="dropdown__info flex flex-col absolute z-[3] top-[110%] w-full border-[2px] h-[10em] bg-white rounded-[4px]">
+      {
+        <div
+          className={[
+            `${!dropdown && "hidden"}`,
+            `${dropdown && "flex"}`,
+            "dropdown__info",
+          ]
+            .filter(Boolean)
+            .join(" ")}
+        >
           <div className="p-1 flex w-full h-auto">
             <input
+              ref={searchRef}
               type="text"
               value={search}
               onChange={searchHandler}
+              onFocus={() => setDropdown(true)}
+              onBlur={() => setDropdown(false)}
               placeholder="Search"
               className="border border-orange-400 rounded-[4px] p-1 w-full "
             />
@@ -113,7 +149,7 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
             ))}
           </div>
         </div>
-      )}
+      }
     </div>
   );
 };

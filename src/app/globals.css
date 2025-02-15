@@ -70,6 +70,10 @@ body {
   @apply absolute top-0 h-full w-full overflow-y-scroll;
 }
 
+.dropdown__info{
+  @apply flex-col absolute z-[3] top-[110%] w-full border-[2px] h-[10em] bg-white rounded-[4px];
+}
+
 .footer {
   @apply absolute bottom-0 left-0 w-[100%];
 }
