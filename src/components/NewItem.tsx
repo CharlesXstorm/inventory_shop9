@@ -45,7 +45,7 @@ const NewItem = () => {
         <div className="newitem__content bg-zinc-100 px-[1em] py-[1.5em] lg:py-[2em] flex flex-col md:flex-row md:justify-between gap-4 lg:gap-6">
           <div className="newitem__content__form flex flex-col gap-6 md:w-[50%]">
             <div className="newitem__content__form__input">
-              <label className="text-red-600">Category*</label>
+              <label htmlFor="category" className="text-red-600">Category*</label>
               <Dropdown
                 id="category"
                 name="category"
@@ -54,7 +54,7 @@ const NewItem = () => {
               />
             </div>
             <div className="newitem__content__form__input">
-              <label className="text-red-600">Sub Category*</label>
+              <label htmlFor="subcategory" className="text-red-600">Sub Category*</label>
               <Dropdown
                 id="subcategory"
                 name="subcategory"

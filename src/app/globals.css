@@ -71,7 +71,7 @@ body {
 }
 
 .dropdown__info{
-  @apply flex-col absolute z-[3] top-[110%] w-full border-[2px] h-[10em] bg-white rounded-[4px];
+  @apply flex-col absolute z-[3] top-[110%] h-[10em] w-full border-[2px] bg-white rounded-[4px];
 }
 
 .footer {

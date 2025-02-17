@@ -28,6 +28,7 @@ const DropdownItems: React.FC<dropdownitemsProps> = ({
   setSearch,
 }) => {
   const setOption = () => {
+    // console.log("options was also clicked");
     setTitle(option);
     onChange(name, option);
     setDropdown(false);
@@ -48,7 +49,8 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   const [title, setTitle] = useState(options[0]);
   const [search, setSearch] = useState("");
   const [dropdown, setDropdown] = useState(false);
-  const [clicked, setClicked] = useState(false);
+   const [hovered, setHovered] = useState(false);
+  // const [clicked, setClicked] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -57,16 +59,12 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
     setSearch(e.target.value);
   };
 
+  // console.log(id, title);
+
   const clickHandler = () => {
     setDropdown((prev) => {
-      if (!prev && !clicked) {
-        console.log("previous state is blurred not clicked");
-        setClicked(true);
+      if (!prev) {
         return true;
-      } else if (!prev && clicked) {
-        console.log("blurred clicked");
-        setClicked(false);
-        return false;
       } else {
         return false;
       }
@@ -81,21 +79,26 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
         );
 
   useEffect(() => {
-    setTitle(options[0]);
+    return setTitle(options[0]);
   }, [options]);
 
-  // useEffect(() => {
-  //   if (dropdown) {
-  //     searchRef?.current?.focus();
-  //   } else {
-  //     setClicked(false);
-  //   }
-  // }, [dropdown]);
+  useEffect(() => {
+    const focus = () => {
+      if (dropdown) {
+        searchRef?.current?.focus();
+      } else {
+        return;
+      }
+    };
+    return focus();
+  }, [dropdown]);
 
   return (
     <div
-      id={id}
+      // id={id}
       className="dropdown border-[2px] border-blue-600 w-full relative"
+      onMouseEnter={()=> console.log("hovering")}
+      onMouseLeave={()=> console.log("not hovering")}
     >
       <button
         ref={btnRef}
@@ -125,12 +128,17 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
         >
           <div className="p-1 flex w-full h-auto">
             <input
+              id={id}
               ref={searchRef}
               type="text"
               value={search}
               onChange={searchHandler}
-              onFocus={() => setDropdown(true)}
-              onBlur={() => setDropdown(false)}
+              // onFocus={() => setDropdown(true)}
+              onBlur={() => {
+                if(!hovered){
+                  setDropdown(false)
+                }
+              }}
               placeholder="Search"
               className="border border-orange-400 rounded-[4px] p-1 w-full "
             />
