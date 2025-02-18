@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+/src/data/file.txt
+/src/data/outfile.txt
+/src/data/photoscript.jsx
+/src/data/script.js
+/src/data/whatsappweb.js
 
 # testing
 /coverage

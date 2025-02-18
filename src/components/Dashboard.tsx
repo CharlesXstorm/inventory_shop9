@@ -1,35 +1,34 @@
+"use client";
+
+// import { isMobile } from "@/app/utils";
 import Image from "next/image";
 import React from "react";
+import useIsMobile from "@/hooks/deviceCheck";
 import Gutter from "./ui/Gutter";
 import { dashboard } from "@/constants";
-import Button from "./ui/Button";
-import Span from "./ui/Span";
-import Collapsible, { Collapsible_menu } from "./Collapsible";
-import { menuProps } from "@/types";
-
-const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
-  return (
-    <Gutter type="column" button>
-      <Button id={id} collapsible={collapse} primary>
-        <Span>
-          {icon}
-          {title}
-        </Span>
-      </Button>
-      {collapse && (
-        <Collapsible id={id}>
-          {items?.map((item) => (
-            <Collapsible_menu key={item.id} id={item.id} className="collapsible__menu">{item.title}</Collapsible_menu>
-          ))}
-        </Collapsible>
-      )}
-    </Gutter>
-  );
-};
+import Menu from "./Menu";
+import { useStore } from "@/store";
+import CancelButton from "./ui/CancelButton";
 
 const Dashboard = () => {
+  const { displayMenu, setDisplayMenu } = useStore();
+  const isMobile = useIsMobile();
+
   return (
-    <div className="dashboard">
+    <div
+      className={[
+        "dashboard",
+        `${
+          isMobile
+            ? displayMenu
+              ? "flex translate-x-[0%]"
+              : "hidden translate-x-[-100%]"
+            : "flex translate-x-[0%]"
+        } `,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <Gutter type="row" block className="dashboard__title">
         <h1>Inventory</h1>
         <Image
@@ -41,17 +40,20 @@ const Dashboard = () => {
         />
       </Gutter>
       <Gutter type="column" className="dashboard__menu">
-        {dashboard.map((menu) => (
-          <Menu
-            key={menu.id}
-            id={menu.id.toString()}
-            title={menu.title}
-            items={menu.items}
-            icon={menu.icon}
-            collapse={menu.collapse}
-          />
-        ))}
+        <div className="dashboard__menu__contents">
+          {dashboard.map((menu) => (
+            <Menu
+              key={menu.id}
+              id={menu.id.toString()}
+              title={menu.title}
+              items={menu.items}
+              icon={menu.icon}
+              collapse={menu.collapse}
+            />
+          ))}
+        </div>
       </Gutter>
+      {isMobile && <CancelButton cancelFn={setDisplayMenu} />}
     </div>
   );
 };

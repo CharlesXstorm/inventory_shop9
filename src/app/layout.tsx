@@ -7,7 +7,7 @@ import Dashboard from "@/components/Dashboard";
 
 const jost = Jost({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-jost",
 });
 
@@ -24,12 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${jost.variable} antialiased`}>
-        <div className="container">
+        <div className="container_">
           <Dashboard />
           <div className="container__content">
             <Header />
-            <main>{children}</main>
-            <Footer />
+            <main className="container__body">{children}</main>
           </div>
         </div>
       </body>

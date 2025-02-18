@@ -1,68 +1,264 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import 'css/config.css';
+@import "css/config.css";
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-jost)
+  font-family: var(--font-jost);
+  overflow: hidden;
 }
 
-.button{
-@apply flex gap-2 items-center rounded-[6px] py-paddingButton px-[15px]
+.button {
+  @apply flex gap-2 items-center rounded-[6px] lg:text-[12px] py-paddingButton px-[15px];
 }
 
-.button__primary{
-  @apply flex justify-between bg-orange-400 hover:bg-black w-[100%] text-black hover:text-white
+.button__primary {
+  @apply flex justify-between bg-orange-400 w-[100%] text-black;
 }
 
-.button__secondary{
-  @apply flex justify-between bg-black w-[100%] text-white
+.button__secondary {
+  @apply flex justify-between bg-black w-[100%] text-white;
 }
 
-.container{
-  @apply flex
+.cancel {
+  @apply absolute left-0 top-0 p-[1em];
+}
+
+.container_ {
+  @apply flex w-[100%];
+}
+
+.container__body {
+  @apply w-full flex-grow border-[2px] overflow-hidden;
+}
+
+.container__content {
+  @apply flex flex-col w-full h-[100vh] overflow-hidden;
 }
 
 .collapsible {
-  @apply w-[100%] mt-1
+  @apply w-[100%] lg:text-[12px] mt-1 overflow-hidden;
 }
 
-.collapsible__menu{
-  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white
+.collapsible__collapse {
+  @apply grid max-h-[0px] transition-all;
 }
 
-.dashboard{
-  @apply fixed md:relative w-[60%] md:w-[20%] xl:w-[15%] h-[100vh] overflow-hidden
+.collapsible__expand {
+  @apply grid max-h-[500px] transition-all ease-in-out;
+}
+
+.collapsible__menu {
+  @apply flex flex-col flex-wrap text-start w-full p-paddingButton text-white hover:bg-black;
+}
+
+.dashboard {
+  @apply lg:flex flex-col z-[3] fixed top-0 lg:sticky transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
-  @apply bg-black gap-2 h-[10vh]
+  @apply flex bg-black gap-2 h-[10vh];
 }
 
 .dashboard__menu {
-  @apply h-[90vh] flex flex-col items-start overflow-y-scroll border border-red-500
+  @apply relative flex flex-col h-[90vh] w-full;
 }
 
-.gutter{
-  @apply flex justify-center items-center w-[100%]
+.dashboard__menu__contents {
+  @apply absolute top-0 h-full w-full overflow-y-scroll;
 }
 
-.svg__arrow{
-  @apply rotate-90 transition-transform
+.dropdown{
+  @apply relative w-full;
 }
 
-h1{
+.dropdown__info{
+  @apply flex-col absolute z-[3] top-[110%] h-[10em] w-full border-[2px] bg-white rounded-[4px];
+}
+
+.footer {
+  @apply absolute bottom-0 left-0 w-[100%];
+}
+
+.form__title{
+  @apply text-[16px] font-[500]
+}
+
+.gutter {
+  @apply flex justify-center items-center w-[100%];
+}
+
+.hamburger {
+  @apply p-[2px] rounded h-[2px] bg-[#F7941E];
+}
+
+/* .header {
+  @apply flex justify-between items-center p-[1em] md:px-[2em] bg-black h-[10vh];
+} */
+
+.header {
+  @apply flex flex-col lg:flex-row justify-between items-center gap-4 p-[1em] md:px-[2em] bg-black h-[auto];
+}
+
+.header__brand {
+  @apply flex lg:hidden gap-2 w-[4em];
+}
+
+.header__brand__logo {
+  @apply flex flex-col w-full gap-2 justify-center;
+}
+
+.header__left {
+  @apply flex justify-between gap-10 w-full;
+}
+
+.header__menu {
+  @apply flex justify-between items-center border-b border-zinc-300 bg-white z-[2] text-[12px] w-full px-[1em] py-[1em];
+}
+
+.header__right {
+  @apply flex justify-end items-center gap-5 text-white py-2 w-full;
+}
+
+.input {
+  @apply p-1 w-full rounded-[4px] border focus:outline-none;
+}
+
+.items__checkbox {
+  @apply flex justify-end gap-2 w-[3em] ml-2 lg:w-[3em];
+}
+
+.items__list {
+  @apply flex flex-col relative h-full w-full;
+}
+
+.items__list__body {
+  @apply w-full flex-grow overflow-scroll;
+}
+
+.items__list__body__content {
+  @apply flex gap-2 border-t border-b py-2 cursor-pointer;
+}
+
+.items__list__body__content:hover {
+  @apply bg-zinc-100;
+}
+
+.items__list__header {
+  @apply flex gap-2 h-[auto] bg-zinc-200;
+}
+
+.items__list__content {
+  @apply flex justify-between text-[12px] p-2 w-full;
+}
+
+.items__list__content > span {
+  @apply flex justify-between w-full;
+}
+
+.newitem__content__form__input {
+  @apply flex items-center lg:flex-row gap-6;
+}
+
+.newitem__content__form__input > label {
+  @apply w-[25%] flex items-center gap-1;
+}
+
+.page {
+  @apply relative h-full flex flex-col;
+}
+
+.search {
+  @apply flex gap-2 w-[100%] md:w-[60%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
+}
+
+/* .search {
+  @apply flex gap-2 w-[50%] md:w-[30%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
+} */
+
+.svg__arrow {
+  @apply rotate-90 transition-transform;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  /* cursor: pointer; */
+}
+
+.tooltip::after {
+  content: attr(data-title);
+  position: absolute;
+  pointer-events: none;
+  /* max-width: 200px;  */
+  bottom: -60%;
+  left: 50%;
+  color: white;
+  background: #333;
+  white-space: pre;
+  z-index: 1;
+  font-size: small;
+  padding: 4px;
+  border: none;
+  border-radius: 2px;
+  transform: translateX(0%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.2s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+.uploadbox {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  border: 1px dashed #999;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.uploadbox:hover {
+  border-color: chartreuse;
+}
+
+.uploadcontainer {
+  @apply flex flex-col w-full;
+}
+
+.uploadinfo {
+  @apply py-2 max-h-[100px] w-[200px] overflow-scroll;
+}
+
+h1 {
   font-weight: 1000;
   color: white;
+}
+
+/* WebKit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  .dashboard{
+  .dashboard {
     background-color: var(--background-800);
   }
 }

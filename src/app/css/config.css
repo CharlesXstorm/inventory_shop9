@@ -3,8 +3,8 @@
   --background-800: #27272A;
   --foreground: #171717;
   --font-jost: "jost", sans-serif;
-  --paddingBlock: 20px;
-  --paddingButton: 8px;
+  --paddingBlock: 8px;
+  --paddingButton: 6px;
 }
 
 /* @media (prefers-color-scheme: dark) {

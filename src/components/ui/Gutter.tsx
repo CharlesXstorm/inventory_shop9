@@ -13,8 +13,8 @@ const Gutter: React.FC<gutterProps> = ({
       className={[
         type === "column" && "flex-col",
         "gutter",
-        block && "py-paddingBlock",
-        button && "py-paddingBlock px-[5px]",
+        block && "py-[15px] lg:py-paddingBlock",
+        button && "py-[15px] lg:py-paddingBlock px-[5px]",
         `${className}`,
       ]
         .filter(Boolean)

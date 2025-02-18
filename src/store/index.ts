@@ -1,20 +1,19 @@
 import { create } from "zustand";
 
 interface storeProps {
-  isHovered: boolean;
-  //   isClicked: boolean;
-  hoveredID: string | null;
   clickedID: string | null;
-  setHovered: (hover: boolean, hoverID?: string | null) => void;
   setClickedID: (clickID?: string | null) => void;
+  displayMenu: boolean;
+  setDisplayMenu: (display: boolean) => void;
+  itemView: boolean | null;
+  setItemView: (view: boolean | null) => void;
 }
 
 export const useStore = create<storeProps>((set) => ({
-  isHovered: false,
-  //   isClicked: false,
-  hoveredID: null,
   clickedID: null,
-  setHovered: (hover, hoverID?) =>
-    set({ isHovered: hover, hoveredID: hoverID }),
   setClickedID: (clickID?) => set({ clickedID: clickID }),
+  displayMenu: false,
+  setDisplayMenu: (display) => set({ displayMenu: display }),
+  itemView: true,
+  setItemView: (view) => set({ itemView: view }),
 }));
