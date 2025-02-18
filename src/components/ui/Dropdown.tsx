@@ -28,7 +28,6 @@ const DropdownItems: React.FC<dropdownitemsProps> = ({
   setSearch,
 }) => {
   const setOption = () => {
-    // console.log("options was also clicked");
     setTitle(option);
     onChange(name, option);
     setDropdown(false);
@@ -49,8 +48,7 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   const [title, setTitle] = useState(options[0]);
   const [search, setSearch] = useState("");
   const [dropdown, setDropdown] = useState(false);
-   const [hovered, setHovered] = useState(false);
-  // const [clicked, setClicked] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   const btnRef = useRef<HTMLButtonElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -58,8 +56,6 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
   const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
-
-  // console.log(id, title);
 
   const clickHandler = () => {
     setDropdown((prev) => {
@@ -95,10 +91,9 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
 
   return (
     <div
-      // id={id}
-      className="dropdown border-[2px] border-blue-600 w-full relative"
-      onMouseEnter={()=> console.log("hovering")}
-      onMouseLeave={()=> console.log("not hovering")}
+      className="dropdown"
+      onMouseOver={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <button
         ref={btnRef}
@@ -135,8 +130,8 @@ const Dropdown: React.FC<dropdownProps> = ({ id, options, name, onChange }) => {
               onChange={searchHandler}
               // onFocus={() => setDropdown(true)}
               onBlur={() => {
-                if(!hovered){
-                  setDropdown(false)
+                if (!hovered) {
+                  setDropdown(false);
                 }
               }}
               placeholder="Search"
