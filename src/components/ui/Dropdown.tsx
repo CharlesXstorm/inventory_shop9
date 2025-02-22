@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useRef, useState } from "react";
 import { arrowLine, Svg } from "../svgs";
 import Search from "./Search";
-import { inputProps } from "@/types";
+// import { inputProps } from "@/types";
 
 interface dropdownitemsProps {
   option: string;
