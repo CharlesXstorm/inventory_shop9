@@ -127,7 +127,7 @@ body {
 }
 
 .items__checkbox {
-  @apply flex justify-end gap-2 w-[3em] ml-2 lg:w-[3em];
+  @apply flex justify-end gap-2 w-[3em] lg:w-[3em];
 }
 
 .items__list {
@@ -135,7 +135,7 @@ body {
 }
 
 .items__list__body {
-  @apply w-full flex-grow overflow-scroll;
+  @apply w-full flex-grow pl-2 overflow-scroll;
 }
 
 .items__list__body__content {
@@ -146,8 +146,12 @@ body {
   @apply bg-zinc-100;
 }
 
+.items__list__body_err {
+  @apply w-full p-2 flex justify-center;
+}
+
 .items__list__header {
-  @apply flex gap-2 h-[auto] bg-zinc-200;
+  @apply flex gap-2 pl-2 h-[auto] bg-zinc-200;
 }
 
 .items__list__content {

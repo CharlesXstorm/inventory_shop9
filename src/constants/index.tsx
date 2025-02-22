@@ -21,9 +21,13 @@ export const dashboard = [
     id: 2,
     title: "Inventory",
     items: [
-      { id: "2_1", title: "Items", path:"/inventory/items" },
-      { id: "2_2", title: "Price Lists", path:"/inventory/price_list" },
-      { id: "2_3", title: "Inventory Adjustments", path:"/inventory/adjustments" },
+      { id: "2_1", title: "Items", path: "/inventory/items" },
+      { id: "2_2", title: "Price Lists", path: "/inventory/price_lists" },
+      {
+        id: "2_3",
+        title: "Inventory Adjustments",
+        path: "/inventory/adjustments",
+      },
     ],
     icon: inventory,
     collapse: true,
@@ -32,10 +36,10 @@ export const dashboard = [
     id: 3,
     title: "Sales",
     items: [
-      { id: "3_1", title: "Sales Orders", path:"/sales/orders" },
-      { id: "3_2", title: "Sales Receipts", path:"/sales/receipts" },
-      { id: "3_3", title: "Sales Return", path:"/sales/return" },
-      { id: "3_4", title: "Invoices", path:"/sales/invoices" },
+      { id: "3_1", title: "Sales Orders", path: "/sales/orders" },
+      { id: "3_2", title: "Sales Receipts", path: "/sales/receipts" },
+      { id: "3_3", title: "Sales Return", path: "/sales/return" },
+      { id: "3_4", title: "Invoices", path: "/sales/invoices" },
     ],
     icon: sales,
     collapse: true,
@@ -44,10 +48,10 @@ export const dashboard = [
     id: 4,
     title: "Purchase",
     items: [
-      { id: "4_1", title: "Expenses", path:"/purchase/expenses" },
-      { id: "4_2", title: "Purchase Orders", path:"/purchase/orders" },
-      { id: "4_3", title: "Bills", path:"/purchase/bills" },
-      { id: "4_4", title: "Payments Made", path:"/purchase/payments" },
+      { id: "4_1", title: "Expenses", path: "/purchase/expenses" },
+      { id: "4_2", title: "Purchase Orders", path: "/purchase/orders" },
+      { id: "4_3", title: "Bills", path: "/purchase/bills" },
+      { id: "4_4", title: "Payments Made", path: "/purchase/payments" },
     ],
     icon: purchase,
     collapse: true,
@@ -68,45 +72,70 @@ export const dashboard = [
   },
 ];
 
-export const itemsListHeaderField = [
-  {
-    text: "NAME",
-    locked: true
-  },
-  {
-    text: "SKU",
-    locked: false
-  },
-  {
-    text: "STOCK IN HAND",
-    locked: false
-  },
-  {
-    text: "REORDER LEVEL",
-    locked: false
-  },
-  {
-    text: "DESCRIPTION",
-    locked: false
-  },
-  {
-    text: "MANUFACTURER",
-    locked: false
-  },
-  {
-    text: "EAN",
-    locked: false
-  },
-  {
-    text: "MPN",
-    locked: false
-  },
-  {
-    text: "ENN",
-    locked: false
-  },
-  {
-    text: "PURCHASE RATE",
-    locked: false
-  }
-]
+export const autoparts = {
+  err: "No Records Found",
+  header: [
+    {
+      text: "NAME",
+      locked: true,
+    },
+    {
+      text: "SKU",
+      locked: false,
+    },
+    {
+      text: "STOCK IN HAND",
+      locked: false,
+    },
+    {
+      text: "REORDER LEVEL",
+      locked: false,
+    },
+    {
+      text: "DESCRIPTION",
+      locked: false,
+    },
+    {
+      text: "MANUFACTURER",
+      locked: false,
+    },
+    {
+      text: "EAN",
+      locked: false,
+    },
+    {
+      text: "MPN",
+      locked: false,
+    },
+    {
+      text: "ENN",
+      locked: false,
+    },
+    {
+      text: "PURCHASE RATE",
+      locked: false,
+    },
+  ],
+};
+
+export const pricelist = {
+  err: "Special deals for regular customers Or customized prices for overseas clients",
+  header: [
+    {
+      text: "NAME",
+      locked: true,
+    },
+    {
+      text: "DETAILS",
+      locked: false,
+    },
+    {
+      text: "CURRENCY",
+      locked: false,
+    },
+    {
+      text: "BULK PRICE",
+      locked: false,
+    }
+  ],
+};

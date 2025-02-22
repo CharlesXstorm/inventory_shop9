@@ -49,6 +49,7 @@ export interface menuheaderProps {
   title: string;
   toggle?: boolean;
   main?: boolean;
+  options?: boolean;
   path?: string;
 }
 
@@ -73,6 +74,19 @@ export interface inputProps {
 export interface itemsHeaderProps {
   index?: number;
   item: string;
+}
+export interface itemsbodyProps {
+  index: number;
+  item?: string;
+  part: partProps;
+  customise?: boolean;
+  itemsheader?: string[];
+}
+export interface itemslistProps {
+  customise?: boolean;
+  itemsheader: string[];
+  itemsbody: partProps[];
+  err:string;
 }
 export interface partProps {
   [key: string]: any;
