@@ -5,7 +5,7 @@ import Input from "./ui/Input";
 import { question, Svg } from "./svgs";
 import Clientscript from "./clientscript/Clientscript";
 import Dropdown from "./ui/Dropdown";
-import { categories, subcategories } from "@/data";
+import { categories, subcategories } from "@/constants";
 
 const NewItem = () => {
 

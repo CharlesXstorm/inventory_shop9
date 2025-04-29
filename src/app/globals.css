@@ -31,7 +31,7 @@ body {
 }
 
 .container__body {
-  @apply w-full flex-grow border-[2px] overflow-hidden;
+  @apply w-full flex-grow overflow-hidden;
 }
 
 .container__content {
@@ -55,7 +55,7 @@ body {
 }
 
 .dashboard {
-  @apply lg:flex flex-col z-[3] fixed top-0 lg:sticky transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
+  @apply bg-[var(--background-800)] lg:flex flex-col z-[3] fixed top-0 lg:sticky transition-transform w-[70%] md:w-[40%] lg:w-[18%] h-[100vh] overflow-hidden;
 }
 
 .dashboard__title {
@@ -178,6 +178,29 @@ body {
   @apply flex gap-2 w-[100%] md:w-[60%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
 }
 
+.signin {
+  @apply relative w-full h-[100vh] overflow-hidden bg-[var(--background-800)];
+}
+
+.signinBg{
+  @apply flex flex-col absolute top-0 w-full h-[100vh];
+}
+
+.signin__container{
+  @apply flex flex-col lg:flex-row pt-[5em] px-[1em] lg:pt-[4em] lg:px-[10em] w-full h-full overflow-hidden;
+}
+
+/* .signin__container{
+  @apply flex flex-col lg:flex-row pt-[5em] px-[1em] lg:pt-[4em] lg:px-[10em] w-full h-full overflow-hidden bg-[url("/icons/signin.svg")] bg-repeat bg-center;
+} */
+
+.signin__col{
+  @apply flex flex-col p-[2em] w-full h-[80vh] rounded;
+}
+
+.signin__col__item{
+  @apply flex flex-col w-full py-[0.5em];
+}
 /* .search {
   @apply flex gap-2 w-[50%] md:w-[30%] rounded p-[4px] items-center bg-zinc-900 border hover:border-[orange] transition-all;
 } */

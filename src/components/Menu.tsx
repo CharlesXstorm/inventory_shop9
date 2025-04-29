@@ -21,6 +21,7 @@ const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
     <Gutter type="column" button>
       <Button
         id={id}
+        path={items ? items[0].path : null}
         collapsible={collapse}
         isClicked={isClicked}
         isHovered={isHovered}
@@ -43,7 +44,7 @@ const Menu: React.FC<menuProps> = ({ id, title, items, icon, collapse }) => {
           {items?.map((item) => (
             <Collapsible_menu
               key={item.id}
-              id={item.id}
+              id={item.id??""}
               path={item.path}
               className="collapsible__menu"
             >

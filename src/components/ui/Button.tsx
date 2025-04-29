@@ -1,12 +1,13 @@
-
 import React from "react";
 import { buttonProps } from "@/types";
-import {arrow, Svg} from "../svgs";
+import { arrow, Svg } from "../svgs";
 import Span from "./Span";
+import { useRouter } from "next/navigation";
 
 const Button: React.FC<buttonProps> = ({
   children,
   id,
+  path,
   className,
   primary,
   secondary,
@@ -16,9 +17,13 @@ const Button: React.FC<buttonProps> = ({
   hover,
   onClick,
   onMouseEnter,
-  onMouseLeave
+  onMouseLeave,
 }) => {
+  const router = useRouter();
 
+  const clickPath = () => {
+    router.push(`${path}`);
+  };
   return (
     <button
       className={[
@@ -33,12 +38,21 @@ const Button: React.FC<buttonProps> = ({
       type="button"
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      onClick={onClick}
+      onClick={() => {
+        onClick ? onClick() : null;
+        !collapsible ? clickPath() : null;
+      }}
     >
       {children}
       {collapsible && (
         <Span>
-          <Svg svg={arrow} color="#000000" isClicked={isClicked} isHovered={isHovered} className="svg__arrow" />
+          <Svg
+            svg={arrow}
+            color="#000000"
+            isClicked={isClicked}
+            isHovered={isHovered}
+            className="svg__arrow"
+          />
         </Span>
       )}
     </button>

@@ -10,6 +10,7 @@ export interface gutterProps extends PropsWithChildren {
 
 export interface buttonProps extends PropsWithChildren {
   id?: string;
+  path?: string | null;
   className?: string;
   primary?: boolean;
   secondary?: boolean;
@@ -33,8 +34,8 @@ export interface svgProps {
 }
 
 export interface itemProps {
-  id: string;
-  title: string;
+  id?: string;
+  title?: string;
   path: string;
 }
 export interface menuProps {
